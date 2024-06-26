@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Regular";
+  src: local("Rubik-Regular"),
+    url("./assets/Fonts/Rubik-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Medium";
+  src: local("Rubik-Medium"),
+    url("./assets/Fonts/Rubik-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bold";
+  src: local("Rubik-Bold"),
+    url("./assets/Fonts/Rubik-Bold.ttf") format("truetype");
+}
+
 html:lang(ar) {
   direction: rtl;
 }
