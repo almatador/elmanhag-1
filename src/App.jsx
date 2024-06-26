@@ -1,9 +1,13 @@
-import Dashboard from './Pages/DashboardPage'
-
+import { Dashboard } from './Layouts/AllLayouts'
+// import Sidebar from './Components/Sidebar'
 function App() {
   return (
     <>
-      <Dashboard />
+      <div className="flex gap-x-4">
+        {/* <Sidebar /> */}
+        <Dashboard />
+        {/* asdasd */}
+      </div>
     </>
   )
 }
