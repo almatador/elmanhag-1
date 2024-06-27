@@ -1,6 +1,0 @@
-export { default as CurriculaPage } from "./CurriculaPage"
-export { default as DutiesPage } from "./DutiesPage"
-export { default as LiveClassesPage } from "./LiveClassesPage"
-export { default as MonthsreviewsPage } from "./MonthsReviewsPage"
-export { default as FinalReviewsPage } from "./FinalReviewsPage"
-export { default as SolveExamsPage } from "./SolveExamsPage"
