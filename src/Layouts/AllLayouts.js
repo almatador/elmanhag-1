@@ -1,0 +1,7 @@
+export { default as Curricula } from "./Curricula"
+export { default as Duties } from "./Duties"
+export { default as LiveClasses } from "./LiveClasses"
+export { default as Monthsreviews } from "./MonthsReviews"
+export { default as FinalReviews } from "./FinalReviews"
+export { default as SolveExams } from "./SolveExams"
+export { default as Dashboard } from "./Dashboard"
