@@ -17,7 +17,6 @@ import Sidebar from "./Components/Sidebar";
 const AppLayout = () => (
        <>
               <div className="flex gap-x-4">
-
                      <Sidebar />
                      <Outlet />
               </div>
@@ -29,7 +28,7 @@ export const router = createBrowserRouter([
               element: <AppLayout />,
               children: [
                      {
-                            path: "/",
+                            path: "/:token",
                             element: <App />,
                      },
                      {
@@ -56,10 +55,11 @@ export const router = createBrowserRouter([
                             path: "/SolveExams",
                             element: <SolveExams />,
                      },
-                     {
-                            path: "*",
-                            element: <NotFoundPage />,
-                     },
               ],
        },
+       {
+              path: "*",
+              element: <NotFoundPage />,
+       },
+       
 ]);
