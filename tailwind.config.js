@@ -8,6 +8,14 @@ export default {
         primaryeMedium: ["Medium"],
         primaryeBold: ["Bold"],
       },
+      colors: {
+        mainColor: "#D01025",
+        secoundColor: "#fff",
+      },
+      backgroundColor: {
+        mainBgColor: "#7E7D7D",
+        secoundBgColor: "#cccccc",
+      },
     },
   },
   plugins: [],
