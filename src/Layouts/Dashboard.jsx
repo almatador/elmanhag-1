@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardPage from '../Pages/DashboardPage'
+import DashboardPage from '../Pages/DashboardPage/DashboardPage'
 
 const Dashboard = () => {
        return (
