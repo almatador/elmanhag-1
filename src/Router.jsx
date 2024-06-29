@@ -11,8 +11,10 @@ import {
        SolveExams,
 } from "./Layouts/AllLayouts";
 
-import NotFoundPage from "./Pages/NotFoundPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Sidebar from "./Components/Sidebar";
+
+const token = localStorage.getItem('token');
 
 const AppLayout = () => (
        <>
@@ -28,7 +30,8 @@ export const router = createBrowserRouter([
               element: <AppLayout />,
               children: [
                      {
-                            path: "/:token",
+                            // path: `/:${token}`,
+                            path: '/',
                             element: <App />,
                      },
                      {
