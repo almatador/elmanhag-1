@@ -6,7 +6,7 @@ import {
        Curricula,
        Duties,
        LiveClasses,
-       Monthsreviews,
+       MonthsReviews,
        FinalReviews,
        SolveExams,
 } from "./Layouts/AllLayouts";
@@ -47,8 +47,8 @@ export const router = createBrowserRouter([
                             element: <LiveClasses />,
                      },
                      {
-                            path: "/Monthsreviews",
-                            element: <Monthsreviews />,
+                            path: "/MonthsReviews",
+                            element: <MonthsReviews />,
                      },
                      {
                             path: "/FinalReviews",
