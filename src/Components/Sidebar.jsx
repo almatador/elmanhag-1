@@ -4,8 +4,10 @@ import MenuSide from "./MenuSide.jsx";
 const Sidebar = () => {
        return (
               <>
-                     <aside className="w-[20%] h-full overflow-hidden sticky top-0 flex flex-col items-center justify-between bg-mainColor ">
-                            <LogoSidebar Width="100%" />
+                     <aside className="w-1/5 fixed h-screen right-0 overflow-hidden flex flex-col items-center bg-mainColor gap-y-6">
+                            <div className="h-1/5 mt-2">
+                                   <LogoSidebar Width="100%" />
+                            </div>
                             <MenuSide />
                      </aside>
               </>

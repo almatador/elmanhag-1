@@ -86,35 +86,33 @@ const MenuSide = () => {
        };
        return (
               <>
-                     <div className="w-full mt-8 mb-8 flex justify-end">
-
-
-                            <div className="MenuSide w-5/6 flex flex-col items-start gap-y-7">
-                                   <NavLink to="/" onClick={handleClickHome} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium ">
+                     <div className="w-full h-full mt-4 mb-8 flex justify-end">
+                            <div className="MenuSide w-5/6 flex flex-col items-start gap-y-4">
+                                   <NavLink to="/" onClick={handleClickHome} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium ">
                                           <HomeIcon isActive={isActiveHome} />
                                           <span>الرئيسيه</span>
                                    </NavLink>
-                                   <NavLink to="/Curricula" onClick={handleClickCurricula} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/Curricula" onClick={handleClickCurricula} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <CurriculaIcon isActive={isActiveCurricula} />
                                           <span>مناهج</span>
                                    </NavLink>
-                                   <NavLink to="/Duties" onClick={handleClickDuties} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/Duties" onClick={handleClickDuties} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <DutiesIcon isActive={isActiveDuties} />
                                           <span>واجبات</span>
                                    </NavLink>
-                                   <NavLink to="/LiveClasses" onClick={handleClickLiveClasses} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/LiveClasses" onClick={handleClickLiveClasses} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <LiveClassesIcon isActive={isActiveLiveClasses} />
                                           <span>حصص لايف</span>
                                    </NavLink>
-                                   <NavLink to="/MonthsReviews" onClick={handleClickMonthsReviews} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/MonthsReviews" onClick={handleClickMonthsReviews} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <MonthsReviewsIcon isActive={isActiveMonthsReviews} />
                                           <span>مراجعات شهور </span>
                                    </NavLink>
-                                   <NavLink to="/FinalReviews" onClick={handleClickFinalReviews} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/FinalReviews" onClick={handleClickFinalReviews} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <FinalReviewsIcon isActive={isActiveFinalReviews} />
                                           <span>مراجعه نهائيه</span>
                                    </NavLink>
-                                   <NavLink to="/SolveExams" onClick={handleClickSolveExams} className="w-full flex items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
+                                   <NavLink to="/SolveExams" onClick={handleClickSolveExams} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium">
                                           <SolveExamsIcon isActive={isActiveSolveExams} />
                                           <span>حل امتحانات</span>
                                    </NavLink>

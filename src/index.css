@@ -25,21 +25,24 @@ html:lang(ar) {
 }
 
 .MenuSide a.active {
+  padding-right: 20px;
   border-radius: 0 12px 12px 0;
-  padding: 7px 20px 7px 0;
   background: #fff;
   color: red !important;
   transition: all 0.3s ease-in-out;
 }
 
-/* .childSection {
+.contentSection {
   position: absolute;
-  width: 80%;
-  height: 100%;
-  position: relative;
-  background: yellow;
-  z-index: 10;
-} */
+  /* height: 100%; */
+  top: 0;
+  left: 1%;
+  border-radius: 0 15px 15px 0;
+  background: #fff;
+  /* padding: 20px;
+  padding-top: 0; */
+}
+
 /*
 .childSection::before {
   content: "";

@@ -13,14 +13,18 @@ import {
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Sidebar from "./Components/Sidebar";
+import Header from "./Components/Header";
 
 const token = localStorage.getItem('token');
 
 const AppLayout = () => (
        <>
-              <div className="flex gap-x-4">
-                     <Sidebar />
-                     <Outlet />
+              <div className="relative flex gap-x-4">
+                            <Sidebar />
+                     <div className="contentSection w-4/5 min-h-screen">
+                            <Header />
+                            <Outlet />
+                     </div>
               </div>
        </>
 );
