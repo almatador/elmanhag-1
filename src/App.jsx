@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <div className="flex gap-x-4 flex-col">
-        <Header />
+        
         <Dashboard />
         {/* <h2>Welcome {student}</h2>
       <p>Email: {student}</p> */}
