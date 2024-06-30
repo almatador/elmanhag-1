@@ -23,3 +23,16 @@
 html:lang(ar) {
   direction: rtl;
 }
+
+.MenuSide a.active {
+  background: #fff;
+  padding: 7px 0;
+  padding-right: 20px;
+  border-radius: 0 12px 12px 0;
+  color: red !important;
+}
+
+.MenuSide a.active>svg {
+  color: red !important;
+
+}
