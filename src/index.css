@@ -25,14 +25,30 @@ html:lang(ar) {
 }
 
 .MenuSide a.active {
-  background: #fff;
-  padding: 7px 0;
-  padding-right: 20px;
   border-radius: 0 12px 12px 0;
+  padding: 7px 20px 7px 0;
+  background: #fff;
   color: red !important;
+  transition: all 0.3s ease-in-out;
 }
 
-.MenuSide a.active>svg {
-  color: red !important;
-
-}
+/* .childSection {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  position: relative;
+  background: yellow;
+  z-index: 10;
+} */
+/*
+.childSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2%;
+  width: 10%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0 13px 13px 0;
+  z-index: 1;
+} */
