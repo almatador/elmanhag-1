@@ -14,16 +14,21 @@ import {
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
+import { createContext } from "react";
 
 const token = localStorage.getItem('token');
+
+export const ContextNumper = createContext()
 
 const AppLayout = () => (
        <>
               <div className="relative flex gap-x-4">
-                            <Sidebar />
+                     <Sidebar />
                      <div className="contentSection w-4/5 min-h-screen">
                             <Header />
-                            <Outlet />
+                            <ContextNumper.Provider value="sdfsdf">
+                                   <Outlet />
+                            </ContextNumper.Provider>
                      </div>
               </div>
        </>
@@ -35,6 +40,7 @@ export const router = createBrowserRouter([
               children: [
                      {
                             // path: `/:${token}`,
+                            // path: '/token/:token',
                             path: '/',
                             element: <App />,
                      },
