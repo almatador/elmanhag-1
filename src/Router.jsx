@@ -26,7 +26,6 @@ const AppLayout = () => (
                      <Sidebar />
                      <div className="contentSection w-4/5 min-h-screen">
                             <Header />
-                            <Data />
                             <ContextNumper.Provider value="sdfsdf">
                                    <Outlet />
                             </ContextNumper.Provider>

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 const DataStydent = () => {
-       // const [student, setStudent] = useState(null);
+       const [student, setStudent] = useState(null);
        const [token, setToken] = useState(null);
        useEffect(() => {
               const fetchData = async () => {
@@ -23,6 +23,9 @@ const DataStydent = () => {
                             });
 
                             console.log('Student data:', studentDataResponse.data);
+                            setStudent(studentDataResponse.data)
+                            // console.log(student)
+                            localStorage.setItem("studentData", studentDataResponse.data);
                      } catch (error) {
                             console.error('Data fetch error:', error);
                      }
