@@ -15,8 +15,8 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
 import { createContext } from "react";
+import Data from "./DataStydent";
 
-const token = localStorage.getItem('token');
 
 export const ContextNumper = createContext()
 
@@ -26,6 +26,7 @@ const AppLayout = () => (
                      <Sidebar />
                      <div className="contentSection w-4/5 min-h-screen">
                             <Header />
+                            <Data />
                             <ContextNumper.Provider value="sdfsdf">
                                    <Outlet />
                             </ContextNumper.Provider>
