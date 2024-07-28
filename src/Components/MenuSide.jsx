@@ -8,7 +8,7 @@ import {
        LiveClassesIcon,
        MonthsReviewsIcon,
        SolveExamsIcon,
-} from "./Icons/All_Icons.js";
+} from "./Icons/All_Icons";
 import { NavLink } from "react-router-dom";
 
 
@@ -88,7 +88,7 @@ const MenuSide = () => {
               <>
                      <div className="w-full h-full mt-4 mb-8 flex justify-end">
                             <div className="MenuSide w-5/6 flex flex-col items-start gap-y-4">
-                                   <NavLink to="/" onClick={handleClickHome} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium ">
+                                   <NavLink to="/DashboardStudent" onClick={handleClickHome} className="w-full flex px-0 py-2 items-center justify-start gap-x-5 text-secoundColor text-xl font-medium ">
                                           <HomeIcon isActive={isActiveHome} />
                                           <span>الرئيسيه</span>
                                    </NavLink>
