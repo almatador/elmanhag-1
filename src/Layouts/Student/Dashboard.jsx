@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import DashboardPage from '../Pages/DashboardPage/DashboardPage'
+import React from 'react'
+import DashboardPage from '../../Pages/Student/DashboardPage/DashboardPage'
 
 const Dashboard = () => {
        return (
