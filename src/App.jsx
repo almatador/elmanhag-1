@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 import { Dashboard } from './Layouts/AllLayouts'
 
@@ -10,9 +9,6 @@ function App() {
     <>
       <div className="flex gap-x-4 flex-col">
         <Dashboard />
-        {/* <h2>Welcome {student}</h2>
-      <p>Email: {student}</p> */}
-
       </div>
     </>
   )

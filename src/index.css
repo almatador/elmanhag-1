@@ -20,7 +20,7 @@
     url("./assets/Fonts/Rubik-Bold.ttf") format("truetype");
 }
 
-html:lang(ar) {
+.directionAR{
   direction: rtl;
 }
 
