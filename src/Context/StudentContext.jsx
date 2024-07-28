@@ -1,15 +1,11 @@
-import React, { createContext } from 'react'
-export const ContextStudent = createContext()
+import React, { createContext } from 'react';
 
-const obje = {
-       arrayOne: [2, 3, 4],
-       arrayTwo: ["Ahmed", "Mohamed", "Ali"]
-}
+export const ContextStudent = createContext();
 
-export default function StudentContext({ childrn }) {
-       return (
-              <ContextStudent.Provider value="Ahmed">
-                     {childrn}
-              </ContextStudent.Provider>
-       )
+export default function StudentContext({ children }) {
+    return (
+        <ContextStudent.Provider value="Ahmed">
+            {children}
+        </ContextStudent.Provider>
+    );
 }
