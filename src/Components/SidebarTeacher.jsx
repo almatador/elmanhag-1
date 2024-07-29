@@ -1,5 +1,5 @@
 import React from "react";
-import LogoSidebar from "../../public/assets/Images/logoSidebar.jsx"
+import LogoSidebar from "../Assets/Images/logoSidebar.jsx"
 import MenuSide from "./MenuSide.jsx";
 const SidebarTeacher = () => {
        return (
