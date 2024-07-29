@@ -26,11 +26,27 @@ import HeaderParent from "./Components/HeaderParent";
 import HeaderStudent from "./Components/HeaderStudent";
 import { createContext } from "react";
 import StudentContext from "./Context/StudentContext";
-import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import LoginPage from "./Pages/RegisterPage/LoginPage";
+import SignUpPage from "./Pages/RegisterPage/SignUpPage";
+
+import { HomePage } from "./Pages/AllPages";
+import HeaderHome from "./Components/HeaderHome";
+import FooterHome from "./Components/FooterHome";
 
 
 export const ContextNumper = createContext()
 
+const AppLayoutHomePage = () => (
+       <>
+              <div className="flex flex-col">
+                     <div className="">
+                            <HeaderHome />
+                            <Outlet />
+                            <FooterHome />
+                     </div>
+              </div>
+       </>
+);
 const AppLayoutSuperAdmin = () => (
        <>
               <div className="relative flex gap-x-4">
@@ -112,8 +128,21 @@ const AppLayoutStudent = () => (
 
 export const router = createBrowserRouter([
        {
-              path: "/",
-              element: <RegisterPage />,
+              element: <AppLayoutHomePage />,
+              children: [
+                     {
+                            path: "/",
+                            element: <HomePage />,
+                     }
+              ]
+       },
+       {
+              path: "/login",
+              element: <LoginPage />,
+       },
+       {
+              path: "/signUp",
+              element: <SignUpPage />,
        },
        {
               element: <AppLayoutSuperAdmin />,
