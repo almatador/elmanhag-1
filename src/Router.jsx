@@ -32,6 +32,9 @@ import SignUpPage from "./Pages/RegisterPage/SignUpPage";
 import { HomePage } from "./Pages/AllPages";
 import HeaderHome from "./Components/HeaderHome";
 import FooterHome from "./Components/FooterHome";
+import LevelsPage from "./Pages/LevelsPage/LevelsPage";
+import AboutUsPage from "./Pages/AboutUsPage/AboutUsPage";
+import ConectUsPage from "./Pages/ConectUsPage/ConectUsPage";
 
 
 export const ContextNumper = createContext()
@@ -133,7 +136,19 @@ export const router = createBrowserRouter([
                      {
                             path: "/",
                             element: <HomePage />,
-                     }
+                     },
+                     {
+                            path: "/Levels",
+                            element: <LevelsPage />,
+                     },
+                     {
+                            path: "/AboutUs",
+                            element: <AboutUsPage />,
+                     },
+                     {
+                            path: "/ConectUs",
+                            element: <ConectUsPage />,
+                     },
               ]
        },
        {
