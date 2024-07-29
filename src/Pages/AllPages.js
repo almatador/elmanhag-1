@@ -1,3 +1,5 @@
+/* Landing Page (Home) */
+export { default as HomePage } from "./HomePage/Homepage";
 /* Super Admin Page */
 /* Admin Page */
 /* Teachers Page */
