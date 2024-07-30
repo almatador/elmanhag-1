@@ -42,11 +42,9 @@ export const ContextNumper = createContext()
 const AppLayoutHomePage = () => (
        <>
               <div className="flex flex-col">
-                     <div className="">
-                            <HeaderHome />
-                            <Outlet />
-                            <FooterHome />
-                     </div>
+                     <HeaderHome />
+                     <Outlet />
+                     <FooterHome />
               </div>
        </>
 );
