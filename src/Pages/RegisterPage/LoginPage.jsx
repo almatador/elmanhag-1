@@ -19,8 +19,10 @@ const LoginPage = () => {
        useEffect(() => {
               if (type === "admin") {
                      navigate("/DashboardAdmin", { replace: true });
+                     setIsloading(false)
               } else if (type === "student") {
                      navigate("/DashboardStudent", { replace: true });
+                     setIsloading(false)
               }
        }, [type]);
 
@@ -58,7 +60,6 @@ const LoginPage = () => {
               console.log("data", data);
               console.log("type", type);
 
-              setIsloading(false)
        };
        if (isloading) {
               return (
