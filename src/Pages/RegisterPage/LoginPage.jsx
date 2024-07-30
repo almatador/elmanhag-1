@@ -17,11 +17,11 @@ const LoginPage = () => {
        // const [type, setType] = useState('');
 
        useEffect(() => {
-              if (type === "admin") {
-                     navigate("/DashboardAdmin", { replace: true });
+              if (type === "admin" || type === "super admin") {
+                     navigate("/DashboardAdmin/Dashboard", { replace: true });
                      setIsloading(false)
               } else if (type === "student") {
-                     navigate("/DashboardStudent", { replace: true });
+                     navigate("/DashboardStudent/Dashboard", { replace: true });
                      setIsloading(false)
               }
        }, [type]);
