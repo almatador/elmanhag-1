@@ -36,16 +36,16 @@ const LinksHomeDS = () => {
        return (
               <>
                      <div className="w-full LinksHomeDS flex flex-row-reverse items-center justify-between ">
-                            <NavLink to="/" onClick={handleClickHome} className="w-full flex px-0 py-2 items-center justify-center gap-x-5 text-black text-xl font-medium ">
+                            <NavLink to="/" onClick={handleClickHome} className="w-full flex items-center justify-center gap-x-5 text-black text-xl font-primaryeRegular">
                                    <span>الرئيسيه</span>
                             </NavLink>
-                            <NavLink to="/Levels" onClick={handleClickLevels} className="w-full flex px-0 py-2 items-center justify-center gap-x-5 text-black text-xl font-medium">
+                            <NavLink to="/Levels" onClick={handleClickLevels} className="w-full flex items-center justify-center gap-x-5 text-black text-xl font-primaryeRegular">
                                    <span>المراحل</span>
                             </NavLink>
-                            <NavLink to="/AboutUs" onClick={handleClickAboutUs} className="w-full flex px-0 py-2 items-center justify-center gap-x-5 text-black text-xl font-medium">
+                            <NavLink to="/AboutUs" onClick={handleClickAboutUs} className="w-full flex items-center justify-center gap-x-5 text-black text-xl font-primaryeRegular">
                                    <span>من نحن </span>
                             </NavLink>
-                            <NavLink to="/ConectUs" onClick={handleClickConectUs} className="w-full flex px-0 py-2 items-center justify-center gap-x-5 text-black text-xl font-medium">
+                            <NavLink to="/ConectUs" onClick={handleClickConectUs} className="w-full flex items-center justify-center gap-x-5 text-black text-xl font-primaryeRegular">
                                    <span>اتصل بنا </span>
                             </NavLink>
                      </div>
