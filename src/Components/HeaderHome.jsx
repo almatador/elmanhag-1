@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../Assets/Images/logoSidebar'
+import Logo from '../Assets/Images/logoBlack'
 import { Link } from 'react-router-dom'
 import LinksHomeDS from './LinksHomeDS'
 
@@ -9,7 +9,7 @@ const HeaderHome = () => {
                      <div className="w-11/12 m-auto flex flex-row-reverse items-center justify-between">
 
                             <div className="w-1/5 flex items-center justify-center">
-                                   <Link to={"/"}><Logo Width={200} height={100} /></Link>
+                                   <Link to={"/"}><Logo Width={200} Height={110} /></Link>
                             </div>
                             <div className="w-2/5 flex items-center justify-center"><LinksHomeDS /></div>
                             <div className="w-1/4 flex flex-row-reverse items-center justify-between">

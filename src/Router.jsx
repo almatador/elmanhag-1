@@ -9,6 +9,7 @@ import {
        MonthsReviews,
        FinalReviews,
        SolveExams,
+       AdminDB,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -63,14 +64,14 @@ const AppLayoutSuperAdmin = () => (
 );
 const AppLayoutAdmin = () => (
        <>
-              <div className="relative flex gap-x-4">
-                     <SidebarAdmin />
+              <div className="">
+                     {/* <SidebarAdmin />
                      <div className="contentSection w-4/5 min-h-screen ">
                             <HeaderAdmin />
-                            <StudentContext>
-                                   <Outlet />
-                            </StudentContext>
-                     </div>
+                            <StudentContext> */}
+                     <Outlet />
+                     {/* </StudentContext>
+                     </div> */}
               </div>
        </>
 );
@@ -159,19 +160,21 @@ export const router = createBrowserRouter([
        },
        {
               element: <AppLayoutSuperAdmin />,
+              path: '/DashboardSuperAdmin',
               children: [
                      {
-                            path: '/DashboardSuperAdmin',
+                            path: 'Dashboard',
                             element: <App />,
                      }
               ],
        },
        {
               element: <AppLayoutAdmin />,
+              path: '/DashboardAdmin',
               children: [
                      {
-                            path: '/DashboardAdmin',
-                            element: <App />,
+                            path: 'Dashboard',
+                            element: <AdminDB />,
                      }
               ],
        },
