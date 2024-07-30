@@ -1,5 +1,6 @@
 /* Super Admin Layout */
 /* Admin Layout */
+export { default as AdminDB } from "./Admin/AdminDB";
 /* Teachers Layout */
 /* Parent Layout */
 /* Affiliate Layout */
