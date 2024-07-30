@@ -20,8 +20,14 @@
     url("./assets/Fonts/Rubik-Bold.ttf") format("truetype");
 }
 
-.directionAR{
+.directionAR {
   direction: rtl;
+}
+
+.LinksHomeDS a.active {
+  color: #D01025 !important;
+  font-weight: bold;
+  /* transition: all 0.3s ease-in-out; */
 }
 
 .MenuSide a.active {
