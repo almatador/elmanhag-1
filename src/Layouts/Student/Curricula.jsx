@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { ContextStudent } from '../../Context/StudentContext';
+import { ContextUser } from '../../Context/UserContext';
 
 const Curricula = () => {
-    const data = useContext(ContextStudent);
+    const data = useContext(ContextUser);
 
     return (
         <>

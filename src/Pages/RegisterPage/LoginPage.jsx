@@ -1,30 +1,30 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
+import { useAuth } from '../../Context/Auth';
 
 const LoginPage = () => {
+       const auth = useAuth();
+
        const [email, setEmail] = useState('');
        const [password, setPassword] = useState('');
        const [data, setData] = useState(null);
        const [type, setType] = useState('');
        const [error, setError] = useState('');
-       const [isloading, setIsloading] = useState(false);
-
+       const [isloading, setIsLoading] = useState(false);
 
        const navigate = useNavigate();
 
-       // const [type, setType] = useState('');
-
        useEffect(() => {
-              if (type === "admin" || type === "super admin") {
-                     navigate("/DashboardAdmin/Dashboard", { replace: true });
-                     setIsloading(false)
-              } else if (type === "student") {
-                     navigate("/DashboardStudent/Dashboard", { replace: true });
-                     setIsloading(false)
+              if (data) {
+                     console.log('Calling auth.login with data:', data); // Debugging line
+                     auth.login(data); // Call auth.login with the updated data
+
+                     setIsLoading(false);
+                     navigate("/Dashboard", { replace: true });
               }
-       }, [type]);
+       }, [data]);
 
        const handleSubmit = async (event) => {
               event.preventDefault();
@@ -38,7 +38,7 @@ const LoginPage = () => {
               console.log('Email:', email);
               console.log('Password:', password);
 
-              setIsloading(true)
+              setIsLoading(true)
               try {
                      const response = await axios.post('https://bdev.elmanhag.shop/api/admin/auth/login', {
                             email,
@@ -46,9 +46,15 @@ const LoginPage = () => {
                      });
 
                      if (response.status === 200) {
-                            setData(response.data.success);
+                            const userData = {
+                                   ...response.data.detailes,
+                                   roles: [response.data.detailes.type] // Assuming type represents the user's role
+                            };
+                            console.log('Login response:', response); // Debugging line
+                            setData(userData);
                             setType(response.data.detailes.type);
                             console.log("response", response);
+
                      } else {
                             setError('Failed to post data');
                             console.log("error", error);
@@ -57,9 +63,6 @@ const LoginPage = () => {
                      setError('There was an error posting the data!');
                      console.error(error);
               }
-              console.log("data", data);
-              console.log("type", type);
-
        };
        if (isloading) {
               return (
