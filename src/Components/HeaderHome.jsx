@@ -16,8 +16,8 @@ const HeaderHome = () => {
                             <div className="w-2/5 flex items-center justify-center"><LinksHomeDS /></div>
                             <div className="w-1/4 flex flex-row-reverse items-center justify-between">
                                    {!auth.user && <>
-                                          <Link to={"/signUp"} className="px-4 py-3 text-2xl  text-secoundColor bg-mainColor rounded-2xl">انشاء حساب </Link>
-                                          <Link to={"/login"} className="px-3 text-xl text-mainColor font-primaryeMedium rounded-2xl">تسجيل الدخول</Link>
+                                          <Link to={"/authentication/signUp"} className="px-4 py-3 text-2xl  text-secoundColor bg-mainColor rounded-2xl">انشاء حساب </Link>
+                                          <Link to={"/authentication/login"} className="px-3 text-xl text-mainColor font-primaryeMedium rounded-2xl">تسجيل الدخول</Link>
                                    </>
                                    }</div>
                      </div>
