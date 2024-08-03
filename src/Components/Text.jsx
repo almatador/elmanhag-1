@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TextTitle = ({ text, size , color, font }) => {
+const TextTitle = ({ text, color, font }) => {
        return (
               <span
-                     className={`text-${size} text-${color} font-${font} `}
+                     className={`text-5xl text-${color} font-${font} `}
               >
                      {text}
               </span>
