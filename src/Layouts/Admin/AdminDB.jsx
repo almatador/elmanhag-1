@@ -8,12 +8,13 @@ const AdminDB = () => {
 
   const handleLogout = () => {
     auth.logout();
-    // navigate("/", { replace: true });
+    navigate("/authentication", { replace: true });
+    // return <Navigate to="/authentication" replace />;
   }
 
   // Redirect to login page if user is not authenticated
   if (!auth.user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/authentication" replace />;
   }
 
   return (

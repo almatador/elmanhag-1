@@ -50,6 +50,7 @@ import Unauthorized from "./Pages/Unauthorized/Unauthorized";
 import ProtectedLogin from "./Protected Data/ProtectedLogin";
 import Authentication from "./Pages/RegisterPage/Authentication";
 import ForgetPass from "./Pages/RegisterPage/ForgetPass";
+import LoginAdmin from "./Pages/RegisterPage/LoginAdmin";
 
 
 export const ContextNumper = createContext()
@@ -178,6 +179,15 @@ export const router = createBrowserRouter([
         element: <ConectUsPage />,
       },
     ],
+  }, {
+    path: "/loginWego",
+    element: <ProtectedLogin />,
+    children: [
+      {
+        path: '',
+        element: <LoginAdmin />,
+      }
+    ]
   },
   {
     path: '/authentication',

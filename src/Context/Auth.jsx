@@ -24,6 +24,7 @@ export const ContextProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+
   };
 
   return (
