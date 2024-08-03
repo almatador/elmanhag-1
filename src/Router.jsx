@@ -182,12 +182,7 @@ export const router = createBrowserRouter([
   }, {
     path: "/loginWego",
     element: <LoginAdmin />,
-    children: [
-      {
-        path: '',
-        element: <LoginAdmin />,
-      }
-    ]
+
   },
   {
     path: '/authentication',
