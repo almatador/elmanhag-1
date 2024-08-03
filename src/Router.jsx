@@ -49,6 +49,7 @@ import ProtectedRoute from "./Protected Data/ProtectedRoute";
 import Unauthorized from "./Pages/Unauthorized/Unauthorized";
 import ProtectedLogin from "./Protected Data/ProtectedLogin";
 import Authentication from "./Pages/RegisterPage/Authentication";
+import ForgetPass from "./Pages/RegisterPage/ForgetPass";
 
 
 export const ContextNumper = createContext()
@@ -56,6 +57,11 @@ export const ContextNumper = createContext()
 const AppLayoutAuthentication = () => (
   <>
     <Authentication />
+  </>
+);
+const AppLayoutForgetPass = () => (
+  <>
+    <ForgetPass />
   </>
 );
 const AppLayoutHomePage = () => (
@@ -176,7 +182,6 @@ export const router = createBrowserRouter([
   {
     path: '/authentication',
     element: <ProtectedLogin />,
-    // element: <ProtectedLogin><Authentication /></ProtectedLogin>,
     children: [
       {
         path: '',
@@ -192,15 +197,24 @@ export const router = createBrowserRouter([
           },
           {
             index: true, // This makes it the default route for "/authentication"
-            // element: <LoginPage />,
             element: <Navigate to="login" replace />,
           },
         ],
-
-      }
+      },
     ]
 
   },
+  {
+    path: '/forgetPassword',
+    element: <ProtectedLogin />,
+    children: [
+      {
+        path: '',
+        element: <AppLayoutForgetPass />,
+      },
+    ],
+  },
+
 
 
 

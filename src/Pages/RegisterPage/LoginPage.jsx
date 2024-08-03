@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
 import { useAuth } from '../../Context/Auth';
 import TextTitle from '../../Components/Text';
@@ -137,7 +137,7 @@ const LoginPage = () => {
                                    <InputCustom type={"email"} placeholder={"Email"} value={email} onChange={(e) => setEmail(e.target.value)} />
                                    <InputCustom type={"password"} placeholder={"Password"} value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                                   <NavLink className="border-b-2 pb-1 border-mainColor text-2xl font-medium text-mainColor mb-6">Forget password?</NavLink>
+                                   <Link to={'/forgetPassword'} className="border-b-2 pb-1 border-mainColor text-2xl font-medium text-mainColor mb-6">Forget password?</Link>
 
                                    {error && <div className="w-full text-mainColor text-center text-2xl mb-4 font-bold">{error}</div>}
 
