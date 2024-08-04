@@ -1,6 +1,0 @@
-{
-       "rewrites": [
-         { "source": "/loginWego", "destination": "/" },
-         { "source": "/(.*)", "destination": "/" }
-       ]
-     }
