@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
 import { useAuth } from '../../Context/Auth';
-import TextTitle from '../../Components/Text';
+import TextTitle from '../../Components/TextTitle';
 import InputCustom from '../../Components/InputCustom';
 
 const LoginPage = () => {
@@ -26,7 +26,13 @@ const LoginPage = () => {
                      auth.login(data); // Call auth.login with the updated data
 
                      setIsLoading(false);
-                     navigate("/Dashboard", { replace: true });
+                     if (type === "student") {
+
+                            navigate("/dashboard", { replace: true });
+                     } else {
+
+                            navigate("/dashboardUser", { replace: true });
+                     }
               }
        }, [data]);
 
@@ -46,7 +52,7 @@ const LoginPage = () => {
 
               setIsLoading(true)
               try {
-                     const response = await axios.post('https://bdev.elmanhag.shop/api/admin/auth/login', {
+                     const response = await axios.post('https://bdev.elmanhag.shop/api/user/auth/login', {
                             email,
                             password,
                      });

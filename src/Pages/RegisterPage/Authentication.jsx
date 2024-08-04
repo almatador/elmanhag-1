@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import Logo from "../../Assets/Images/logoBlack"
-import TextTitle from '../../Components/Text';
+import TextTitle from '../../Components/TextTitle';
 
 const Authentication = () => {
        const [isActiveLogin, setIsActiveLogin] = useState(true);
@@ -32,7 +32,7 @@ const Authentication = () => {
                             </div>
                             <div className="hidden lg:flex items-center justify-center w-6/12">
                                    {/* <img src={Logo} alt="" /> */}
-                                   <Logo Height='250'/>
+                                   <Logo Height='250' />
                             </div>
                      </div >
               </>

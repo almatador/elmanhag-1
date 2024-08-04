@@ -9,7 +9,7 @@ import {
   MonthsReviews,
   FinalReviews,
   SolveExams,
-  AdminDB,
+  DashboardAD,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -33,7 +33,7 @@ import HeaderStudent from "./Components/HeaderStudent";
 import { createContext } from "react";
 
 import UserContext from "./Context/UserContext";
-import LoginPage from "./Pages/RegisterPage/LoginPage";
+import LoginUser from "./Pages/RegisterPage/LoginUser";
 import SignUpPage from "./Pages/RegisterPage/SignUpPage";
 
 import { HomePage } from "./Pages/AllPages";
@@ -51,6 +51,10 @@ import ProtectedLogin from "./Protected Data/ProtectedLogin";
 import Authentication from "./Pages/RegisterPage/Authentication";
 import ForgetPass from "./Pages/RegisterPage/ForgetPass";
 import LoginAdmin from "./Pages/RegisterPage/LoginAdmin";
+import User from "./Layouts/User/User";
+import Sidebar from "./Components/Sidebar";
+import Navbar from "./Components/Navbar";
+import UserAD from "./Layouts/Admin/UserAD";
 
 
 export const ContextNumper = createContext()
@@ -90,6 +94,21 @@ const AppLayoutSuperAdmin = () => (
 );
 const AppLayoutAdmin = () => (
   <>
+    <div className="w-full flex justify-between">
+      <Sidebar />
+      <div className="w-10/12 min-h-screen overflow-hidden">
+        <Navbar />
+        <div className="bg-thirdBgColor w-full h-full">
+          <div className="w-[95%] mx-auto h-full">
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
+);
+const AppLayoutUser = () => (
+  <>
     <div className="">
       {/* <ContextProvider> */}
 
@@ -101,6 +120,19 @@ const AppLayoutAdmin = () => (
       {/* </UserContext>
                      </div> */}
       {/* </ContextProvider> */}
+    </div>
+  </>
+);
+const AppLayoutStudent = () => (
+  <>
+    <div className="relative flex gap-x-4 directionAR">
+      <SidebarStudent />
+      <div className="contentSection w-4/5 min-h-screen ">
+        <HeaderStudent />
+        <UserContext>
+          <Outlet />
+        </UserContext>
+      </div>
     </div>
   </>
 );
@@ -143,19 +175,6 @@ const AppLayoutParent = () => (
     </div>
   </>
 );
-const AppLayoutStudent = () => (
-  <>
-    <div className="relative flex gap-x-4 directionAR">
-      <SidebarStudent />
-      <div className="contentSection w-4/5 min-h-screen ">
-        <HeaderStudent />
-        <UserContext>
-          <Outlet />
-        </UserContext>
-      </div>
-    </div>
-  </>
-);
 
 export const router = createBrowserRouter([
   {
@@ -181,8 +200,13 @@ export const router = createBrowserRouter([
     ],
   }, {
     path: "/loginWego",
-    element: <LoginAdmin />,
-
+    element: <ProtectedLogin />,
+    children: [
+      {
+        path: '',
+        element: <LoginAdmin />,
+      }
+    ]
   },
   {
     path: '/authentication',
@@ -194,7 +218,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'login',
-            element: <LoginPage />,
+            element: <LoginUser />,
           },
           {
             path: 'signup',
@@ -236,15 +260,51 @@ export const router = createBrowserRouter([
   },
   {
     element: <ProtectedRoute allowedRoles={['admin', 'super admin']} />,
-    path: '/Dashboard',
+    path: '/dashboardAdmin',
     children: [
       {
         path: '',
         element: <AppLayoutAdmin />,
         children: [
           {
+            path: 'user',
+            element: <UserAD />,
+          },
+          {
             index: true,
-            element: <AdminDB />,
+            element: <DashboardAD />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    element: <ProtectedRoute allowedRoles={['teacher', 'parent', 'affiliate']} />,
+    path: '/dashboardUser',
+    children: [
+      {
+        path: '',
+        element: <AppLayoutUser />,
+        children: [
+          {
+            index: true,
+            element: <User />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    element: <ProtectedRoute allowedRoles={['student']} />,
+    path: '/dashboard',
+    children: [
+      {
+        path: '',
+        element: <AppLayoutStudent />,
+        children: [
+          {
+            index: true,
+            element: <App />,
           },
         ],
       },

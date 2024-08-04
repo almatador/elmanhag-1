@@ -16,6 +16,7 @@ export default {
       backgroundColor: {
         mainBgColor: "#7E7D7D",
         secoundBgColor: "#cccccc",
+        thirdBgColor: "#f6f6f6",
       },
       screens: {
         // sm: "640px",

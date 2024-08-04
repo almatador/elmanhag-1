@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Button from "./Button"
 import axios from 'axios';
+import { useAuth } from '../Context/Auth';
 
 const HeaderStudent = () => {
+       const auth = useAuth();
        // const [student, setStudent] = useState(null); // Initialize student state to null
        // const [token, setToken] = useState(null);
 
@@ -66,7 +68,9 @@ const HeaderStudent = () => {
        // if (!token || !student) { // Check if token or student data is not yet available
        //        return <div>Loading...</div>;
        // }
-
+       const handelLogOut = () => {
+              auth.logout();
+       }
        return (
               <>
                      <div className="w-full flex items-center justify-between m-2 mr-2 p-4 shadow-md rounded-lg">
@@ -74,7 +78,7 @@ const HeaderStudent = () => {
                                    {/* Display student name */}
                                    <span className='text-2xl font-medium text-mainColor'>أهلا بك محمد</span>
                             </div>
-                            <Button Text="تسجيل خروج" BgColor="#D01025" Color="#fff" Size="xl" />
+                            <Button Text="تسجيل خروج" BgColor="#D01025" Color="#fff" Size="xl" handelClick={handelLogOut} />
                      </div>
               </>
        );

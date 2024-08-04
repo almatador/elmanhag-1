@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import Logo from "../../Assets/Images/logoBlack"
-import TextTitle from '../../Components/Text';
+import TextTitle from '../../Components/TextTitle';
 
 const ForgetPass = () => {
        return (

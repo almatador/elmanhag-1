@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import Loading from '../../Components/Loading';
 import { useAuth } from '../../Context/Auth';
-import TextTitle from '../../Components/Text';
+import TextTitle from '../../Components/TextTitle';
 import InputCustom from '../../Components/InputCustom';
 
 const SignUpPage = () => {

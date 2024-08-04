@@ -4,7 +4,7 @@ import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
 import Logo from "../../Assets/Images/logoBlack"
 import Loading from '../../Components/Loading';
 import { useAuth } from '../../Context/Auth';
-import TextTitle from '../../Components/Text';
+import TextTitle from '../../Components/TextTitle';
 import InputCustom from '../../Components/InputCustom';
 
 const LoginAdmin = () => {
@@ -27,7 +27,7 @@ const LoginAdmin = () => {
                      auth.login(data); // Call auth.login with the updated data
 
                      setIsLoading(false);
-                     navigate("/Dashboard", { replace: true });
+                     navigate("/dashboardAdmin", { replace: true });
               }
        }, [data]);
 

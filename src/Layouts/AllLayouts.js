@@ -1,6 +1,7 @@
 /* Super Admin Layout */
 /* Admin Layout */
-export { default as AdminDB } from "./Admin/AdminDB";
+export { default as DashboardAD } from "./Admin/DashboardAD";
+export { default as UserAD } from "./Admin/UserAD";
 /* Teachers Layout */
 /* Parent Layout */
 /* Affiliate Layout */

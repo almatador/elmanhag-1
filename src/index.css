@@ -24,6 +24,20 @@
   direction: rtl;
 }
 
+.LinksSidebar a.active {
+  position: relative;
+}
+
+.LinksSidebar a.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 6px;
+  border-radius: 0px 10px 10px 0px;
+  background: #D01025;
+}
+
 .LinksHomeDS a.active {
   color: #D01025 !important;
   font-weight: bold;
@@ -37,6 +51,7 @@
   color: red !important;
   transition: all 0.3s ease-in-out;
 }
+
 /* .TapAuth a.active {
   padding-right: 20px;
   border-radius: 0 12px 12px 0;
