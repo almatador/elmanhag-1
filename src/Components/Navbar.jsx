@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { IoSearch } from 'react-icons/io5';
 
 import { useAuth } from '../Context/Auth'
 import { CiGlobe } from "react-icons/ci";
 import { IoNotifications } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import SearchBar from './SearchBar';
 
 
 
@@ -32,10 +32,8 @@ const Navbar = () => {
                                           <span className='text-2xl text-mainColor font-bold'>Hello, {auth.user.firstName}</span>
                                    </div>
                             </div>
-                            <div className='w-5/12 relative'>
-                                   <input type="text" name="search" className='w-full h-full pl-12 py-3 rounded-3xl bg-thirdBgColor outline-none font-medium text-thirdColor' placeholder='Search' />
-                                   <IoSearch className='absolute top-3 left-4 text-mainColor font-bold text-xl' />
-
+                            <div className='w-5/12'>
+                                   <SearchBar bg={"thirdBgColor"} />
                             </div>
                             <div className='w-2/12 flex items-center justify-around'>
                                    <div className="w-4/12 relative">
