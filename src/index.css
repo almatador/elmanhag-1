@@ -38,6 +38,11 @@
   background: #D01025;
 }
 
+.listUser {
+  list-style: inside !important;
+  /* color: #D01025; */
+}
+
 .LinksHomeDS a.active {
   color: #D01025 !important;
   font-weight: bold;

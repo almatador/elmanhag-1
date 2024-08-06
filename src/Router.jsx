@@ -10,6 +10,21 @@ import {
   FinalReviews,
   SolveExams,
   DashboardAD,
+  HomeWorkAD,
+  RevisionAD,
+  ExamsAD,
+  LiveAD,
+  MarketingAD,
+  FinancialAD,
+  AffiliateAD,
+  SupportAD,
+  ReportsAD,
+  SettingAD,
+  NoticeBoardAD,
+  CategoriesEducation,
+  SubjectEducation,
+  BundlesEducation,
+  QuestionsBankEducation,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -54,7 +69,10 @@ import LoginAdmin from "./Pages/RegisterPage/LoginAdmin";
 import User from "./Layouts/User/User";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
-import UserAD from "./Layouts/Admin/UserAD";
+import StudentUser from "./Layouts/Admin/StudentUser";
+import TeacherUser from "./Layouts/Admin/TeacherUser";
+import ParentUser from "./Layouts/Admin/ParentUser";
+import AdminUser from "./Layouts/Admin/AdminUser";
 
 
 export const ContextNumper = createContext()
@@ -95,8 +113,8 @@ const AppLayoutSuperAdmin = () => (
 const AppLayoutAdmin = () => (
   <>
     <div className="w-full flex justify-between">
-      <Sidebar />
-      <div className="w-10/12 min-h-screen overflow-hidden">
+      <Sidebar width="w-2/12" />
+      <div className="w-10/12  min-h-screen overflow-hidden">
         <Navbar />
         <div className="bg-thirdBgColor w-full h-full">
           <div className="w-[95%] mx-auto h-full">
@@ -267,8 +285,80 @@ export const router = createBrowserRouter([
         element: <AppLayoutAdmin />,
         children: [
           {
-            path: 'user',
-            element: <UserAD />,
+            path: 'student',
+            element: <StudentUser />,
+          },
+          {
+            path: 'parent',
+            element: <ParentUser />,
+          },
+          {
+            path: 'teacher',
+            element: <TeacherUser />,
+          },
+          {
+            path: 'admin',
+            element: <AdminUser />,
+          },
+          {
+            path: 'categories',
+            element: <CategoriesEducation />,
+          },
+          {
+            path: 'subject',
+            element: <SubjectEducation />,
+          },
+          {
+            path: 'bundles',
+            element: <BundlesEducation />,
+          },
+          {
+            path: 'questionsbank',
+            element: <QuestionsBankEducation />,
+          },
+          {
+            path: 'homework',
+            element: <HomeWorkAD />,
+          },
+          {
+            path: 'revision',
+            element: <RevisionAD />,
+          },
+          {
+            path: 'exams',
+            element: <ExamsAD />,
+          },
+          {
+            path: 'live',
+            element: <LiveAD />,
+          },
+          {
+            path: 'marketing',
+            element: <MarketingAD />,
+          },
+          {
+            path: 'financial',
+            element: <FinancialAD />,
+          },
+          {
+            path: 'affiliate',
+            element: <AffiliateAD />,
+          },
+          {
+            path: 'support',
+            element: <SupportAD />,
+          },
+          {
+            path: 'reports',
+            element: <ReportsAD />,
+          },
+          {
+            path: 'setting',
+            element: <SettingAD />,
+          },
+          {
+            path: 'noticeboard',
+            element: <NoticeBoardAD />,
           },
           {
             index: true,
