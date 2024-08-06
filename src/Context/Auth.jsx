@@ -15,6 +15,7 @@ export const ContextProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(user));
     } else {
       localStorage.removeItem('user');
+      localStorage.removeItem("sidebarState")
     }
   }, [user]);
 
