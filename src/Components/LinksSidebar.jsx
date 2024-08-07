@@ -750,10 +750,6 @@ const LinksSidebar = () => {
                                    <NoticeBoardIcon Width={25} Height={23} isActive={isActiveNoticeBoard} />
                                    <span className={`${isActiveNoticeBoard ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}>Notice Board</span>
                             </Link>
-                            <Link to="add" className={`w-full flex items-center justify-start pl-6 py-[9px] gap-x-5`}>
-                                   <NoticeBoardIcon Width={25} Height={23} isActive={isActiveNoticeBoard} />
-                                   <span className={`text-mainColor  hover:text-mainColor text-lg font-[400]`}>Notice Board</span>
-                            </Link>
 
                      </div >
               </>
