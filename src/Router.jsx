@@ -36,14 +36,9 @@ import SidebarTeacher from "./Components/SidebarTeacher";
 import SidebarAffiliate from "./Components/SidebarAffiliate";
 import SidebarParent from "./Components/SidebarParent";
 import SidebarStudent from "./Components/SidebarStudent";
-import HeaderSuperAdmin from "./Components/HeaderSuperAdmin";
 
-import HeaderAdmin from "./Components/HeaderAdmin";
 
-import HeaderTeacher from "./Components/HeaderTeacher";
-import HeaderAffiliate from "./Components/HeaderAffiliate";
-import HeaderParent from "./Components/HeaderParent";
-import HeaderStudent from "./Components/HeaderStudent";
+// import HeaderStudent from "./Components/HeaderStudent";
 
 import { createContext } from "react";
 
@@ -51,7 +46,7 @@ import UserContext from "./Context/UserContext";
 import LoginUser from "./Pages/RegisterPage/LoginUser";
 import SignUpPage from "./Pages/RegisterPage/SignUpPage";
 
-import { HomePage } from "./Pages/AllPages";
+import { AddPage, HomePage } from "./Pages/AllPages";
 
 import HeaderHome from "./Components/HeaderHome";
 import FooterHome from "./Components/FooterHome";
@@ -287,6 +282,17 @@ export const router = createBrowserRouter([
           {
             path: 'student',
             element: <StudentUser />,
+            // children: [
+            //   {
+            //     path: 'add',
+            //     element: <AddPage />,
+            //   },
+
+            // ]
+          },
+          {
+            path: 'add',
+            element: <AddPage />,
           },
           {
             path: 'parent',
