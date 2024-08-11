@@ -1,4 +1,5 @@
 /* Admin Icons */
+export { default as Wroning } from "./AdminIcons/Wroning.jsx";
 export { default as AffiliateIcon } from "./AdminIcons/AffiliateIcon.jsx";
 export { default as DashboardIcon } from "./AdminIcons/DashboardIcon.jsx";
 export { default as EducationIcon } from "./AdminIcons/EducationIcon.jsx";
