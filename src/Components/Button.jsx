@@ -1,21 +1,26 @@
-import React from 'react'
+import React from 'react';
 import { FaPlus } from "react-icons/fa";
 
-
-const Button = ({ Text, BgColor, Color, Size, handelClick }) => {
+const Button = ({ Text, BgColor = "bg-mainColor", type = "button", Color = "text-white", Size = "text-2xl", px = "px-7", rounded = "rounded-xl", handleClick }) => {
   return (
-    <>
-      <button type='button' className={`bg-[${BgColor}] text-white text-${Size} font-medium rounded-lg px-7 pt-2 py-3`} onClick={handelClick}>{Text}</button>
-    </>
-  )
-}
-const ButtonAdd = ({ Text, BgColor, Color, Size, handelClick }) => {
+    <button
+      type={type}
+      className={`${BgColor} ${Color} ${Size} font-medium ${rounded} pt-2 py-3 ${px}`}
+      onClick={handleClick}>
+      {Text}
+    </button>
+  );
+};
+
+const ButtonAdd = ({ Text, BgColor = "bg-mainColor", Color = "text-white", Size = "text-2xl", handleClick }) => {
   return (
-    <>
+    <button
+      type='button'
+      className={`w-full flex items-center gap-x-2 justify-center bg-${BgColor} text-${Color} text-${Size} font-medium rounded-lg px-4 py-3 outline-none`}
+      onClick={handleClick}>
+      <FaPlus /> {Text}
+    </button>
+  );
+};
 
-      <button type='button' className={`flex items-center gap-x-2 justify-center bg-${BgColor} text-${Color} text-${Size} font-medium rounded-lg px-4 py-3 outline-none`} onClick={handelClick}><FaPlus /> {Text}</button>
-    </>
-  )
-}
-
-export { Button, ButtonAdd }
+export { Button, ButtonAdd };
