@@ -57,12 +57,14 @@ const LoginAdmin = () => {
                                    ...response.data.detailes,
                                    roles: [response.data.detailes.type] // Assuming type represents the user's role
                             };
+                            auth.toastSuccess('Login successfully!');
                             console.log('Login response:', response); // Debugging line
                             setData(userData);
                             setType(response.data.detailes.type);
                             console.log("response", response);
 
                      } else {
+                            auth.toastError('Failed to post data');
                             setError('Failed to post data');
                             console.log("error", error);
                      }

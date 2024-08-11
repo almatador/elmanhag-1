@@ -44,6 +44,23 @@
 }
 
 
+.LinksProfile a.active {
+  position: relative;
+  color: #D01025;
+  padding-bottom: 1.2rem;
+}
+
+.LinksProfile a.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 8px;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  background: #D01025;
+}
+
 .LinksSidebar a.active {
   position: relative;
 }

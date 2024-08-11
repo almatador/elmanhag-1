@@ -1,4 +1,4 @@
-import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+import { NavLink, Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
@@ -46,7 +46,7 @@ import UserContext from "./Context/UserContext";
 import LoginUser from "./Pages/RegisterPage/LoginUser";
 import SignUpPage from "./Pages/RegisterPage/SignUpPage";
 
-import { AddPage, HomePage } from "./Pages/AllPages";
+import { AddPage, HomePage, LoginHistoryPage, ParentPage, ProfilePage, ProgressPage, PurchasesPage } from "./Pages/AllPages";
 
 import HeaderHome from "./Components/HeaderHome";
 import FooterHome from "./Components/FooterHome";
@@ -68,6 +68,8 @@ import StudentUser from "./Layouts/Admin/StudentUser";
 import TeacherUser from "./Layouts/Admin/TeacherUser";
 import ParentUser from "./Layouts/Admin/ParentUser";
 import AdminUser from "./Layouts/Admin/AdminUser";
+import LayoutAdmin from "./Layouts/Admin/LayoutAdmin";
+import EditProfilePage from "./Pages/Admin/StudentPage/EditProfilePage";
 
 
 export const ContextNumper = createContext()
@@ -97,7 +99,7 @@ const AppLayoutSuperAdmin = () => (
     <div className="relative flex gap-x-4">
       <SidebarSuperAdmin />
       <div className="contentSection w-4/5 min-h-screen ">
-        <HeaderSuperAdmin />
+        {/* <HeaderSuperAdmin /> */}
         <UserContext>
           <Outlet />
         </UserContext>
@@ -107,17 +109,17 @@ const AppLayoutSuperAdmin = () => (
 );
 const AppLayoutAdmin = () => (
   <>
-    <div className="w-full flex justify-between">
-      <Sidebar width="w-2/12" />
-      <div className="w-10/12  min-h-screen overflow-hidden">
-        <Navbar />
-        <div className="bg-thirdBgColor w-full h-full">
-          <div className="w-[95%] mx-auto h-full">
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    </div>
+    <LayoutAdmin />
+  </>
+);
+const AppLayoutStudentUser = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutStudentProfile = () => (
+  <>
+    <EditProfilePage />
   </>
 );
 const AppLayoutUser = () => (
@@ -281,18 +283,50 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'student',
-            element: <StudentUser />,
-            // children: [
-            //   {
-            //     path: 'add',
-            //     element: <AddPage />,
-            //   },
+            // element: <StudentUser />,
+            element: <AppLayoutStudentUser />,
 
-            // ]
-          },
-          {
-            path: 'add',
-            element: <AddPage />,
+            children: [
+              {
+                path: '',
+                element: <StudentUser />,
+              },
+              {
+                path: 'add',
+                element: <AddPage />,
+              },
+              {
+                path: 'edit',
+                element: <AppLayoutStudentProfile />,
+                children: [
+                  {
+                    index: true, // This will match the base '/edit' path
+                    element: <Navigate to="profile" />, // Redirect to '/edit/profile'
+                  },
+                  {
+                    path: 'profile',
+                    element: <ProfilePage />,
+                  },
+                  {
+                    path: 'parent',
+                    element: <ParentPage />,
+                  },
+                  {
+                    path: 'Purchases',
+                    element: <PurchasesPage />,
+                  },
+                  {
+                    path: 'Progress',
+                    element: <ProgressPage />,
+                  },
+                  {
+                    path: 'loginHistory',
+                    element: <LoginHistoryPage />,
+                  },
+                ],
+              }
+            ]
+
           },
           {
             path: 'parent',

@@ -19,9 +19,9 @@ export default {
         thirdBgColor: "#f6f6f6",
       },
       screens: {
-        // sm: "640px",
-        md: "768px",
-        lg: "1024px",
+        sm: "320px",
+        md: "640px",
+        lg: "740px",
         xl: "1280px",
         // "2xl": "1536px",
       },
