@@ -1,5 +1,6 @@
 /* Super Admin Layout */
 /* Admin Layout */
+export { default as LayoutAdmin } from "./Admin/LayoutAdmin";
 export { default as DashboardAD } from "./Admin/DashboardAD";
 export { default as StudentUser } from "./Admin/StudentUser";
 export { default as ParentUser } from "./Admin/ParentUser";
