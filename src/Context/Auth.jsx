@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
-
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'; // Import the toastify styles
 // Create a context
 const AuthContext = createContext();
 
@@ -28,9 +29,18 @@ export const ContextProvider = ({ children }) => {
     localStorage.removeItem("sidebarState")
 
   };
+  const toastSuccess = (text) => {
+    toast.success(text);
+
+  };
+  const toastError = (text) => {
+    toast.error(text);
+
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, toastSuccess, toastError }}>
+      <ToastContainer />
       {children}
     </AuthContext.Provider>
   );
