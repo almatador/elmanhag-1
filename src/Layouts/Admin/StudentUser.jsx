@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { StudentPage } from '../../Pages/AllPages'
+import React from 'react'
 
-// import Loading from '../../Components/Loading';
-// import { useAuth } from '../../Context/Auth';
+import { StudentPage } from '../../Pages/AllPages';
 
 const StudentUser = () => {
        return (
-              <><StudentPage /></>
+              <>
+                     <StudentPage />
+              </>
        )
 }
 
