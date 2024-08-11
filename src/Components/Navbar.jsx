@@ -1,23 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { useAuth } from '../Context/Auth'
 import { CiGlobe } from "react-icons/ci";
 import { IoNotifications } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import SearchBar from './SearchBar';
+import DropDownMenu from './DropDownMenu';
 
 
 
 const Navbar = () => {
        const auth = useAuth()
+       const dropdownRef = useRef(null)
+
        const [selectedOption, setSelectedOption] = useState('EN');
        const [open, setOpen] = useState(false);
 
 
        const handleOptionClick = (value) => {
               setSelectedOption(value);
-              setOpen(!open)
+              setOpen(false)
        };
+       const handleClickOpen = () => {
+              setOpen(!open);
+       };
+
+       const handleClickOutside = (event) => {
+              if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                     setOpen(false);
+              }
+       };
+
+       useEffect(() => {
+              document.addEventListener('mousedown', handleClickOutside);
+              return () => {
+                     document.removeEventListener('mousedown', handleClickOutside);
+              };
+       }, []);
+
+
 
        return (
               <>
@@ -29,15 +50,15 @@ const Navbar = () => {
                                    </div>
                                    {/* Name Admin */}
                                    <div className="w-7/12">
-                                          <span className='text-2xl text-mainColor font-bold'>Hello, {auth.user.firstName}</span>
+                                          <span className='text-2xl text-mainColor font-bold'>Hello, {auth.user.name}</span>
                                    </div>
                             </div>
                             <div className='w-5/12'>
                                    <SearchBar bg={"thirdBgColor"} />
                             </div>
                             <div className='w-2/12 flex items-center justify-around'>
-                                   <div className="w-4/12 relative">
-                                          <button className='flex items-center gap-1 justify-between text-2xl' onClick={() => setOpen(!open)}>
+                                   <div className="w-4/12 relative" ref={dropdownRef}>
+                                          <button className='flex items-center gap-1 justify-between text-2xl' onClick={handleClickOpen}>
                                                  {selectedOption === 'EN' ? <CiGlobe className='text-mainColor text-2xl' /> : <CiGlobe className='text-mainColor 2xl' />} <span className='flex items-center text-mainColor font-medium'>{selectedOption}<IoIosArrowDown className={`${open ? "rotate-180" : "rotate-0"} mt-1 ml-1 transition-all duration-300`} /></span>
 
                                           </button>
