@@ -178,7 +178,7 @@ const StudentPage = () => {
        }
 
        if (!student) {
-              return <div className='text-mainColor text-2xl font-bold w-full h-full flex items-center justify-centers'>No student data available</div>;
+              return <div className='text-mainColor text-2xl font-bold w-full h-full flex items-center justify-center'>No student data available</div>;
        }
        console.log("student", student)
        localStorage.setItem("students", JSON.stringify(student))
