@@ -1,26 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TitleHeader from '../../../Components/TitleHeader'
 import { IoIosArrowDown } from 'react-icons/io'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import InputCustom from '../../../Components/InputCustom'
 import DropDownMenu from '../../../Components/DropDownMenu'
 import { CiGlobe } from 'react-icons/ci'
 import { Button } from '../../../Components/Button'
 import axios from 'axios'
 import { useAuth } from '../../../Context/Auth'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'; // Import the toastify styles
 
 const AddPage = () => {
+       const dropdownCountryStudentRef = useRef();
+       const dropdownCityStudentRef = useRef();
        const dropdownLanguageStudentRef = useRef();
        const dropdownRelationStudentRef = useRef();
 
        const navigate = useNavigate();
 
        const [studentName, setStudentName] = useState('')
-       const [studentCountry, setStudentCountry] = useState('')
        const [studentNumber, setStudentNumber] = useState('')
-       const [studentCity, setStudentCity] = useState('')
        const [studentAcademicYear, setStudentAcademicYear] = useState('')
        const [studentPassword, setStudentPassword] = useState('')
        const [studentEmail, setStudentEmail] = useState('')
@@ -30,9 +28,17 @@ const AddPage = () => {
        const [parentPassword, setParentPassword] = useState('')
        const [parentEmail, setParentEmail] = useState('')
 
+       const [studentCountry, setStudentCountry] = useState('Choose Country')
+       const [studentCityState, setStudentCityState] = useState('City')
+       const [Cities, setCities] = useState([])
+      
        const [languageStudent, setLanguageStudent] = useState('English')
+
        const [relationStudent, setRelationStudent] = useState('Choose Relation')
-       const [relation, setRelation] = useState([])
+       const [adminData, setAdminData] = useState([])
+
+       const [openCountry, setOpenCountry] = useState(false);
+       const [openCity, setOpenCity] = useState(false);
        const [openLanguage, setOpenLanguage] = useState(false);
        const [openRelation, setOpenRelation] = useState(false);
 
@@ -40,13 +46,37 @@ const AddPage = () => {
        const auth = useAuth();
 
        useEffect(() => {
-              const relations = JSON.parse(localStorage.getItem('students'));
-              setRelation(relations)
-       }, [relationStudent])
+              const adminData = JSON.parse(localStorage.getItem('students'));
+              setAdminData(adminData)
+       }, [studentCountry, studentCityState, relationStudent])
 
+       const handleOpenCountryStudent = () => {
+              setOpenCountry(!openCountry);
+       }
+       const handleOpenCityStudent = () => {
+              setOpenCity(!openCity);
+       }
        const handleOpenLanguageStudent = () => {
               setOpenLanguage(!openLanguage);
 
+       }
+       const handleCountryStudent = (e) => {
+              const inputElement = e.currentTarget.querySelector('.inputRel');
+              const selectedOptionName = e.currentTarget.textContent.trim();
+              const selectedOptionValue = inputElement ? inputElement.value : '';
+              // setLanguageStudent(selectedOptionName);
+              // setOpenLanguage(false);
+              console.log('Selected NameL:', selectedOptionName);
+              console.log('Selected ValueL:', selectedOptionValue);
+       }
+       const handleCityStudent = (e) => {
+              // const inputElement = e.currentTarget.querySelector('.inputRel');
+              // const selectedOptionName = e.currentTarget.textContent.trim();
+              // const selectedOptionValue = inputElement ? inputElement.value : '';
+              // setLanguageStudent(selectedOptionName);
+              // setOpenLanguage(false);
+              // console.log('Selected NameL:', selectedOptionName);
+              // console.log('Selected ValueL:', selectedOptionValue);
        }
        const handleLanguageStudent = (e) => {
               const inputElement = e.currentTarget.querySelector('.inputRel');
@@ -108,11 +138,11 @@ const AddPage = () => {
                             console.log('Student add successfully');
 
                             // handleGoBack()
-                            toast.success('Student add successfully!');
+                            auth.toast.success('Student add successfully!');
                             return true;
                      } else {
                             console.error('Failed to add student:', response.status, response.statusText);
-                            toast.success('Failed to add.');
+                            auth.toast.success('Failed to add.');
                             return false;
                      }
               } catch (error) {
@@ -159,7 +189,15 @@ const AddPage = () => {
                                           <InputCustom type={"text"} borderColor={"none"} placeholder={"Student Name"} value={studentName} onChange={(e => setStudentName(e.target.value))} />
                                    </div>
                                    <div className="lg:w-[30%] sm:w-full">
-                                          <InputCustom type={"text"} borderColor={"none"} placeholder={"Country"} value={studentCountry} onChange={(e => setStudentCountry(e.target.value))} />
+                                          {/* <InputCustom type={"text"} borderColor={"none"} placeholder={"Country"} value={studentCountry} onChange={(e => setStudentCountry(e.target.value))} /> */}
+                                          <DropDownMenu
+                                                 ref={dropdownCountryStudentRef}
+                                                 handleOpen={handleOpenCountryStudent}
+                                                 handleOpenOption={handleCountryStudent}
+                                                 stateoption={studentCountry}
+                                                 openMenu={openCountry}
+                                                 options={adminData.countries}
+                                          />
                                    </div>
                                    <div className="lg:w-[30%] sm:w-full">
                                           <DropDownMenu
@@ -176,7 +214,15 @@ const AddPage = () => {
                                           <InputCustom type={"number"} borderColor={"none"} placeholder={"Number"} value={studentNumber} onChange={(e => setStudentNumber(e.target.value))} />
                                    </div>
                                    <div className="lg:w-[30%] sm:w-full">
-                                          <InputCustom type={"text"} borderColor={"none"} placeholder={"City"} value={studentCity} onChange={(e => setStudentCity(e.target.value))} />
+                                          {/* <InputCustom type={"text"} borderColor={"none"} placeholder={"City"} value={studentCity} onChange={(e => setStudentCity(e.target.value))} /> */}
+                                          <DropDownMenu
+                                                 ref={dropdownCityStudentRef}
+                                                 handleOpen={handleOpenCityStudent}
+                                                 handleOpenOption={handleCityStudent}
+                                                 stateoption={studentCityState}
+                                                 openMenu={openCity}
+                                                 options={Cities}
+                                          />
                                    </div>
                                    <div className="lg:w-[30%] sm:w-full">
                                           <InputCustom type={"text"} borderColor={"none"} placeholder={"Academic Year"} value={studentAcademicYear} onChange={(e => setStudentAcademicYear(e.target.value))} />
@@ -207,7 +253,7 @@ const AddPage = () => {
                                                  handleOpenOption={handleRelationStudent}
                                                  stateoption={relationStudent}
                                                  openMenu={openRelation}
-                                                 options={relation.relations}
+                                                 options={adminData.relations}
                                           />
                                    </div>
                                    <div className="lg:w-[30%] sm:w-full">
@@ -221,7 +267,7 @@ const AddPage = () => {
                             {/* Buttons */}
                             <div className="w-full flex items-center justify-start gap-x-28 mt-5">
 
-                                   <Button type='submit' Text={"Done"} BgColor="bg-mainColor" Color="text-white" Size='text-2xl' px='px-28' rounded='rounded-2xl' />
+                                   <Button type='submit' Text={"Done"} BgColor="bg-mainColor" Color="text-white" Size='text-2xl' px='px-28' rounded='rounded-2xl' handleClick={handleSubmitAdd} />
 
                                    <button onClick={handleGoBack} className='text-2xl text-mainColor'>Cancel</button>
                             </div>
