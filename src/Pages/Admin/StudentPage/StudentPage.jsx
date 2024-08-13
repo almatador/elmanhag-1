@@ -159,9 +159,9 @@ const StudentPage = () => {
                      setStudent((prevStudent) => ({
                             ...prevStudent,
                             students: prevStudent.students.filter((student) => student.id !== studentId),
-                            total_students: prevStudent.total_students - 1,
-                            free_students: prevStudent.free_students - (prevStudent.students.find((s) => s.id === studentId).bundlesy === '' && prevStudent.students.find((s) => s.id === studentId).subjects === '' ? 1 : 0),
-                            paid_students: prevStudent.paid_students - (prevStudent.students.find((s) => s.id === studentId).bundlesy !== '' || prevStudent.students.find((s) => s.id === studentId).subjects !== '' ? 1 : 0),
+                            //        total_students: prevStudent.total_students - 1,
+                            //        free_students: prevStudent.free_students - (prevStudent.students.find((s) => s.id === studentId).bundlesy === '' && prevStudent.students.find((s) => s.id === studentId).subjects === '' ? 1 : 0),
+                            //        paid_students: prevStudent.paid_students - (prevStudent.students.find((s) => s.id === studentId).bundlesy !== '' || prevStudent.students.find((s) => s.id === studentId).subjects !== '' ? 1 : 0),
                      }));
               } else {
                      auth.toastError('Failed to delete student.');
@@ -194,7 +194,7 @@ const StudentPage = () => {
                      <div className="w-full">
                             <div className="w-full flex flex-wrap items-center justify-between gap-4">
                                    <div className="sm:w-full lg:w-1/5 mx-auto">
-                                          <SearchBar bg={"white"} />
+                                          <SearchBar value={search} bg={"white"} />
                                    </div>
                                    <div className="sm:w-full lg:w-1/5">
                                           <DropDownMenu
@@ -253,12 +253,12 @@ const StudentPage = () => {
                                                         <tr className="w-full border-b-2" key={student.id}>
                                                                <td className="min-w-[80px] sm:w-1/12 lg:w-1/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">{index + 1}</td>
                                                                <td className="min-w-[150px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">
-                                                                      {student.name} <br /> {student.phone}
+                                                                      {student?.name || "null"} <br /> {student?.phone || "null"}
                                                                </td>
                                                                <td className="min-w-[150px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">
-                                                                      {student.country.name} <br /> {student.city.name}
+                                                                      {student.country?.name || "null"} <br /> {student.city?.name || "null"}
                                                                </td>
-                                                               <td className="min-w-[120px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">{student.category.name}</td>
+                                                               <td className="min-w-[120px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">{student.category?.name || "null"}</td>
                                                                <td className="min-w-[120px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden">
                                                                       {student.bundlesy === '' && student.subjects === '' ? 'Paid' : 'Free'}
                                                                </td>
@@ -278,7 +278,7 @@ const StudentPage = () => {
                                                                                                                        <div className="flex items-center">
                                                                                                                               <div className="mt-2 text-center ">
                                                                                                                                      <DialogTitle as="h3" className="text-xl font-semibold leading-10 text-gray-900">
-                                                                                                                                            You will delete {student.firstName + ' ' + student.lastName}
+                                                                                                                                            You will delete {student?.name || "null"}
                                                                                                                                      </DialogTitle>
                                                                                                                               </div>
                                                                                                                        </div>
@@ -290,7 +290,7 @@ const StudentPage = () => {
                                                                                                                               disabled={isDeleting}
                                                                                                                               className="inline-flex w-full justify-center rounded-md bg-mainColor px-6 py-3 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
                                                                                                                        >
-                                                                                                                              {isDeleting ? <div className="w-10 h-5"><Loading /></div> : 'Delete'}
+                                                                                                                              {isDeleting ? <div className="flex w-10 h-5"><Loading /></div> : 'Delete'}
                                                                                                                        </button>
                                                                                                                        <button
                                                                                                                               type="button"
