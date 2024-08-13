@@ -1,8 +1,9 @@
 import React from 'react'
+import { AdminRolesPage } from '../../Pages/AllPages'
 
 const SettingAD = () => {
        return (
-              <div>SettingAD</div>
+              <AdminRolesPage />
        )
 }
 
