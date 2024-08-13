@@ -1,13 +1,16 @@
 import React from 'react';
 import { FaPlus } from "react-icons/fa";
+import Loading from './Loading';
 
-const Button = ({ Text, BgColor = "bg-mainColor", type = "button", Color = "text-white", Size = "text-2xl", px = "px-7", rounded = "rounded-xl", handleClick }) => {
+const Button = ({ stateLoding,Width, Text, BgColor = "bg-mainColor", type = "button", Color = "text-white", Size = "text-2xl", px = "px-7", rounded = "rounded-xl", handleClick }) => {
   return (
     <button
       type={type}
-      className={`${BgColor} ${Color} ${Size} font-medium ${rounded} pt-2 py-3 ${px}`}
+      className={`${BgColor} w-${Width} ${Color} ${Size}  font-medium ${rounded} pt-2 py-3 ${px}`}
       onClick={handleClick}>
-      {Text}
+      {!stateLoding ? Text : <div className="w-full flex items-center justify-center m-auto">
+        <Loading />
+      </div>}
     </button>
   );
 };
