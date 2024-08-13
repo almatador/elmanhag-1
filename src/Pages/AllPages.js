@@ -1,6 +1,7 @@
 /* Landing Page (Home) */
 export { default as HomePage } from "./HomePage/Homepage";
 /* Super Admin Page */
+/* Student Page */
 export { default as StudentPage } from "./Admin/StudentPage/StudentPage";
 export { default as AddPage } from "./Admin/StudentPage/AddPage";
 export { default as ProfilePage } from "./Admin/StudentPage/ProfilePage";
@@ -8,6 +9,9 @@ export { default as ParentPage } from "./Admin/StudentPage/ParentPage";
 export { default as PurchasesPage } from "./Admin/StudentPage/PurchasesPage";
 export { default as ProgressPage } from "./Admin/StudentPage/ProgressPage";
 export { default as LoginHistoryPage } from "./Admin/StudentPage/LoginHistoryPage";
+/* Setting Page */
+export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
+
 /* Admin Page */
 /* Teachers Page */
 /* Parent Page */
