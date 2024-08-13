@@ -395,6 +395,7 @@ export const router = createBrowserRouter([
           {
             path: 'setting',
             element: <SettingAD />,
+            children: [],
           },
           {
             path: 'noticeboard',
