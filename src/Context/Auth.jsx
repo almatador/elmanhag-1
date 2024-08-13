@@ -27,12 +27,13 @@ export const ContextProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("sidebarState")
+    localStorage.removeItem("students")
 
   };
-  const toastSuccess = (text) => {
-    toast.success(text);
+    const toastSuccess = (text) => {
+      toast.success(text);
 
-  };
+    };
   const toastError = (text) => {
     toast.error(text);
 
