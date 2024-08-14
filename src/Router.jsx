@@ -1,4 +1,4 @@
-import { NavLink, Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
@@ -19,12 +19,17 @@ import {
   AffiliateAD,
   SupportAD,
   ReportsAD,
-  SettingAD,
   NoticeBoardAD,
   CategoriesEducation,
   SubjectEducation,
   BundlesEducation,
   QuestionsBankEducation,
+  AddStudentpage,
+  AdminRolesAD,
+  CountriesAD,
+  CitiesAD,
+  ParentRelationAD,
+  OperationsAD,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -46,7 +51,14 @@ import UserContext from "./Context/UserContext";
 import LoginUser from "./Pages/RegisterPage/LoginUser";
 import SignUpPage from "./Pages/RegisterPage/SignUpPage";
 
-import { AddPage, HomePage, LoginHistoryPage, ParentPage, ProfilePage, ProgressPage, PurchasesPage } from "./Pages/AllPages";
+import {
+  HomePage,
+  LoginHistoryPage,
+  ParentPage,
+  ProfilePage,
+  ProgressPage,
+  PurchasesPage
+} from "./Pages/AllPages";
 
 import HeaderHome from "./Components/HeaderHome";
 import FooterHome from "./Components/FooterHome";
@@ -69,7 +81,7 @@ import TeacherUser from "./Layouts/Admin/TeacherUser";
 import ParentUser from "./Layouts/Admin/ParentUser";
 import AdminUser from "./Layouts/Admin/AdminUser";
 import LayoutAdmin from "./Layouts/Admin/LayoutAdmin";
-import EditProfilePage from "./Pages/Admin/StudentPage/EditProfilePage";
+import EditProfilePage from "./Layouts/Admin/EditeProfileStudent";
 
 
 export const ContextNumper = createContext()
@@ -115,6 +127,36 @@ const AppLayoutAdmin = () => (
 const AppLayoutStudentUser = () => (
   <>
     <Outlet />
+  </>
+);
+const AppLayoutAdminRoles = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutCountries = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutCities = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutParentRelation = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutOperations = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutStudentAdd = () => (
+  <>
+    <AddStudentpage />
   </>
 );
 const AppLayoutStudentProfile = () => (
@@ -293,7 +335,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'add',
-                element: <AddPage />,
+                element: <AppLayoutStudentAdd />,
               },
               {
                 path: 'edit',
@@ -393,10 +435,56 @@ export const router = createBrowserRouter([
             element: <ReportsAD />,
           },
           {
-            path: 'setting',
-            element: <SettingAD />,
-            children: [],
+            path: 'adminRoles',
+            element: <AppLayoutAdminRoles />,
+            children: [
+              {
+                path: '',
+                element: <AdminRolesAD />,
+              }
+            ]
           },
+          {
+            path: 'countries',
+            element: <AppLayoutCountries />,
+            children: [
+              {
+                path: '',
+                element: <CountriesAD />,
+              }
+            ]
+          },
+          {
+            path: 'cities',
+            element: <AppLayoutCities />,
+            children: [
+              {
+                path: '',
+                element: <CitiesAD />,
+              }
+            ]
+          },
+          {
+            path: 'parentRelation',
+            element: <AppLayoutParentRelation />,
+            children: [
+              {
+                path: '',
+                element: <ParentRelationAD />,
+              }
+            ]
+          },
+          {
+            path: 'operations',
+            element: <AppLayoutOperations />,
+            children: [
+              {
+                path: '',
+                element: <OperationsAD />,
+              }
+            ]
+          }
+          ,
           {
             path: 'noticeboard',
             element: <NoticeBoardAD />,
