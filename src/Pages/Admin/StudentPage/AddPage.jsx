@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TitleHeader from '../../../Components/TitleHeader'
-import { IoIosArrowDown } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import InputCustom from '../../../Components/InputCustom'
 import DropDownMenu from '../../../Components/DropDownMenu'
@@ -10,6 +9,7 @@ import axios from 'axios'
 import { useAuth } from '../../../Context/Auth'
 import { LiaObjectGroup } from 'react-icons/lia'
 import Loading from '../../../Components/Loading'
+import HeaderPageSection from '../../../Components/HeaderPageSection'
 
 const AddPage = () => {
        const dropdownCountryStudentRef = useRef();
@@ -333,14 +333,6 @@ const AddPage = () => {
 
        return (
               <>
-                     <div className="w-full flex items-center justify-between">
-                            <button type='button' onClick={handleGoBack}>
-                                   <IoIosArrowDown className="rotate-90 text-mainColor text-5xl" />
-                            </button>
-                            <div className="w-7/12">
-                                   <TitleHeader text={"Add"} />
-                            </div>
-                     </div>
                      <form onSubmit={handleSubmitAdd} className='w-full flex flex-col items-center justify-center gap-y-3'>
                             {/* Student Deatils */}
                             <div className="w-full flex flex-wrap items-center justify-start gap-3">
