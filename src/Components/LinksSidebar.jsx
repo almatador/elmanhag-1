@@ -25,6 +25,7 @@ const LinksSidebar = () => {
        // Define the initial state values using the saved state or fallback to default values
        const [isActiveDashboard, setIsActiveDashboard] = useState(savedState.isActiveDashboard ?? true);
        const [isActiveUser, setIsActiveUser] = useState(savedState.isActiveUser ?? false);
+       /* User */
        /* Childern User */
        const [openListUser, setOpenListUser] = useState(savedState.openListUser ?? false);
        const [isActiveStudent, setIsActiveStudent] = useState(savedState.isActiveStudent ?? false);
@@ -32,6 +33,7 @@ const LinksSidebar = () => {
        const [isActiveTeacher, setIsActiveTeacher] = useState(savedState.isActiveTeacher ?? false);
        const [isActiveAdmin, setIsActiveAdmin] = useState(savedState.isActiveAdmin ?? false);
        /* ///Childern User */
+       /* Education */
        /* Childern Education */
        const [isActiveEducation, setIsActiveEducation] = useState(savedState.isActiveEducation ?? false);
        const [openListEducation, setOpenListEducation] = useState(savedState.openListEducation ?? false);
@@ -49,7 +51,16 @@ const LinksSidebar = () => {
        const [isActiveAffiliate, setIsActiveAffiliate] = useState(savedState.isActiveAffiliate ?? false);
        const [isActiveSupport, setIsActiveSupport] = useState(savedState.isActiveSupport ?? false);
        const [isActiveReports, setIsActiveReports] = useState(savedState.isActiveReports ?? false);
+       /* Setting */
+       /* Childern Setting */
        const [isActiveSetting, setIsActiveSetting] = useState(savedState.isActiveSetting ?? false);
+       const [openListSetting, setOpenListSetting] = useState(savedState.openListSetting ?? false);
+       const [isActiveAdminRoles, setIsActiveAdminRoles] = useState(savedState.isActiveAdminRoles ?? false);
+       const [isActiveCountries, setIsActiveCountries] = useState(savedState.isActiveCountries ?? false);
+       const [isActiveCities, setIsActiveCities] = useState(savedState.isActiveCities ?? false);
+       const [isActiveParentRelation, setIsActiveParentRelation] = useState(savedState.isActiveParentRelation ?? false);
+       const [isActiveOperations, setIsActiveOperations] = useState(savedState.isActiveOperations ?? false);
+       /* ///Childern Setting */
        const [isActiveNoticeBoard, setIsActiveNoticeBoard] = useState(savedState.isActiveNoticeBoard ?? false);
 
        useEffect(() => {
@@ -77,10 +88,45 @@ const LinksSidebar = () => {
                      isActiveSupport,
                      isActiveReports,
                      isActiveSetting,
+                     openListSetting,
+                     isActiveAdminRoles,
+                     isActiveCountries,
+                     isActiveCities,
+                     isActiveParentRelation,
+                     isActiveOperations,
                      isActiveNoticeBoard,
               };
               localStorage.setItem('sidebarState', JSON.stringify(sidebarState));
-       }, [isActiveDashboard, isActiveUser, openListUser, isActiveStudent, isActiveParent, isActiveTeacher, isActiveAdmin, isActiveEducation, openListEducation, isActiveCategories, isActiveSubject, isActiveBundles, isActiveQuestionsBank, isActiveHomeWork, isActiveRevision, isActiveExams, isActiveLive, isActiveMarketing, isActiveFinancial, isActiveAffiliate, isActiveSupport, isActiveReports, isActiveSetting, isActiveNoticeBoard]);
+       }, [isActiveDashboard,
+              isActiveUser,
+              openListUser,
+              isActiveStudent,
+              isActiveParent,
+              isActiveTeacher,
+              isActiveAdmin,
+              isActiveEducation,
+              openListEducation,
+              isActiveCategories,
+              isActiveSubject,
+              isActiveBundles,
+              isActiveQuestionsBank,
+              isActiveHomeWork,
+              isActiveRevision,
+              isActiveExams,
+              isActiveLive,
+              isActiveMarketing,
+              isActiveFinancial,
+              isActiveAffiliate,
+              isActiveSupport,
+              isActiveReports,
+              isActiveSetting,
+              openListSetting,
+              isActiveAdminRoles,
+              isActiveCountries,
+              isActiveCities,
+              isActiveParentRelation,
+              isActiveOperations,
+              isActiveNoticeBoard]);
 
 
        const handleClickDashboard = () => {
@@ -96,8 +142,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -108,9 +153,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickUser = (e) => {
+       /* User */
+       const handleClickUser = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(true);
               setOpenListUser(true);
@@ -123,8 +175,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -135,10 +186,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
        /* Childern User */
-       const handleClickStudent = (e) => {
+       const handleClickStudent = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(true);
               setOpenListUser(true);
@@ -151,8 +208,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -163,9 +219,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickParent = (e) => {
+       const handleClickParent = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(true);
               setOpenListUser(true);
@@ -178,8 +240,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -190,9 +251,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickTeacher = (e) => {
+       const handleClickTeacher = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(true);
               setOpenListUser(true);
@@ -205,8 +272,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -217,9 +283,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickAdmin = (e) => {
+       const handleClickAdmin = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(true);
               setOpenListUser(true);
@@ -232,8 +304,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -244,10 +315,17 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
        /* ///Childern User */
-       const handleClickEducation = (e) => {
+       /* Education */
+       const handleClickEducation = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -271,10 +349,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
        /* Childern Education */
-       const handleClickCategories = (e) => {
+       const handleClickCategories = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -298,9 +382,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickSubject = (e) => {
+       const handleClickSubject = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -324,9 +414,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickBundles = (e) => {
+       const handleClickBundles = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -350,9 +446,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickQuestionsBank = (e) => {
+       const handleClickQuestionsBank = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -376,10 +478,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
        /* ///Childern Education */
-       const handleClickHomeWork = (e) => {
+       const handleClickHomeWork = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -392,8 +500,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(true)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -404,9 +511,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickRevision = (e) => {
+       const handleClickRevision = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -419,8 +532,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(true)
               setIsActivExams(false)
@@ -431,9 +543,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickExams = (e) => {
+       const handleClickExams = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -446,8 +564,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(true)
@@ -458,9 +575,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickLive = (e) => {
+       const handleClickLive = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -473,8 +596,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -485,9 +607,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickMarketing = (e) => {
+       const handleClickMarketing = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -500,8 +628,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -512,9 +639,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickFinancial = (e) => {
+       const handleClickFinancial = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -527,8 +660,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -539,9 +671,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickAffiliate = (e) => {
+       const handleClickAffiliate = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -554,8 +692,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -566,9 +703,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickSupport = (e) => {
+       const handleClickSupport = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -581,8 +724,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -593,9 +735,15 @@ const LinksSidebar = () => {
               setIsActiveSupport(true)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickReports = (e) => {
+       const handleClickReports = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -608,8 +756,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
-              setOpenListEducation(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -620,9 +767,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(true)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(false)
        };
-       const handleClickSetting = (e) => {
+       /* Setting */
+       const handleClickSetting = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -635,7 +789,7 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -646,9 +800,16 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(true)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
               setIsActiveNoticeBoard(false)
+
        };
-       const handleClickNoticeBoard = (e) => {
+       /* Setting Childern */
+       const handleClickAdminRoles = () => {
               setIsActiveDashboard(false);
               setIsActiveUser(false);
               setOpenListUser(false);
@@ -661,8 +822,168 @@ const LinksSidebar = () => {
               setIsActiveCategories(false)
               setIsActiveSubject(false)
               setIsActiveBundles(false)
-              setIsActiveQuestionsBank(true)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(true)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
+              setIsActiveNoticeBoard(false)
+       }
+       const handleClickCountries = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
               setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(true)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
+              setIsActiveNoticeBoard(false)
+       }
+       const handleClickCities = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
+              setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(true)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
+              setIsActiveNoticeBoard(false)
+       }
+       const handleClickParentRelatioen = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
+              setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(true)
+              setIsActiveOperations(false)
+              setIsActiveNoticeBoard(false)
+       }
+       const handleClickOperations = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
+              setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(true)
+              setIsActiveNoticeBoard(false)
+       }
+       /* /////Setting Childern */
+       const handleClickNoticeBoard = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
+              setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
               setIsActiveHomeWork(false)
               setIsActiveRevision(false)
               setIsActivExams(false)
@@ -673,6 +994,12 @@ const LinksSidebar = () => {
               setIsActiveSupport(false)
               setIsActiveReports(false)
               setIsActiveSetting(false)
+              setOpenListSetting(false)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
               setIsActiveNoticeBoard(true)
        };
        return (
@@ -742,16 +1069,25 @@ const LinksSidebar = () => {
                                    <ReportsIcon Width={25} Height={23} isActive={isActiveReports} />
                                    <span className={`${isActiveReports ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}>Reports</span>
                             </Link>
-                            <Link to="setting" onClick={handleClickSetting} className={`${isActiveSetting ? 'active' : ''} w-full flex items-center justify-start pl-6 py-[9px] gap-x-5`}>
+                            <Link to="adminRoles" onClick={handleClickSetting} className={`${isActiveSetting ? 'active' : ''} w-full flex items-center justify-start pl-6 py-[9px] gap-x-5`}>
                                    <SettingsIcon Width={25} Height={23} isActive={isActiveSetting} />
                                    <span className={`${isActiveSetting ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}>Setting</span>
                             </Link>
+                            <div className={`${openListSetting ? "h-42" : "h-0 overflow-hidden"} w-full transition-all duration-500`}>
+                                   <ul className={`${openListSetting ? "h-full overflow-hidden" : "h-0 overflow-hidden"} listUser ml-[20%] bg-blacks transition-all duration-700 flex flex-col gap-y-2`} >
+                                          <li className={`${isActiveAdminRoles ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"adminRoles"} onClick={handleClickAdminRoles}>Admin Roles</Link></li>
+                                          <li className={`${isActiveCountries ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"countries"} onClick={handleClickCountries}>Countries</Link></li>
+                                          <li className={`${isActiveCities ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"cities"} onClick={handleClickCities}>Cities</Link></li>
+                                          <li className={`${isActiveParentRelation ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"parentRelation"} onClick={handleClickParentRelatioen}>Parent Relation</Link></li>
+                                          <li className={`${isActiveOperations ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"operations"} onClick={handleClickOperations}>Operations</Link></li>
+                                   </ul>
+                            </div>
                             <Link to="noticeboard" onClick={handleClickNoticeBoard} className={`${isActiveNoticeBoard ? 'active' : ''} w-full flex items-center justify-start pl-6 py-[9px] gap-x-5`}>
                                    <NoticeBoardIcon Width={25} Height={23} isActive={isActiveNoticeBoard} />
                                    <span className={`${isActiveNoticeBoard ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}>Notice Board</span>
                             </Link>
 
-                     </div >
+                     </div>
               </>
        );
 };
