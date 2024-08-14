@@ -4,6 +4,7 @@ export { default as HomePage } from "./HomePage/Homepage";
 /* Student Page */
 export { default as StudentPage } from "./Admin/StudentPage/StudentPage";
 export { default as AddPage } from "./Admin/StudentPage/AddPage";
+export { default as EditProfilePage } from "./Admin/StudentPage/EditProfilePage";
 export { default as ProfilePage } from "./Admin/StudentPage/ProfilePage";
 export { default as ParentPage } from "./Admin/StudentPage/ParentPage";
 export { default as PurchasesPage } from "./Admin/StudentPage/PurchasesPage";
@@ -11,6 +12,10 @@ export { default as ProgressPage } from "./Admin/StudentPage/ProgressPage";
 export { default as LoginHistoryPage } from "./Admin/StudentPage/LoginHistoryPage";
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
+export { default as CountriesPage } from "./Admin/SettingPage/CountriesPage";
+export { default as CitiesPage } from "./Admin/SettingPage/CitiesPage";
+export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelationPage";
+export { default as OperationsPage } from "./Admin/SettingPage/OperationsPage";
 
 /* Admin Page */
 /* Teachers Page */
