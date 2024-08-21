@@ -1,8 +1,15 @@
 import React from 'react'
+import { CategoriesPage } from '../../Pages/AllPages'
+import TitleHeader from '../../Components/TitleHeader';
 
 const CategoriesEducation = () => {
   return (
-    <div>CategoriesEducation</div>
+    <>
+      <div className="flex flex-col items-center gap-y-4">
+        <TitleHeader text={"Categories"} spaceBottom={3} />
+        <CategoriesPage />
+      </div>
+    </>
   )
 }
 

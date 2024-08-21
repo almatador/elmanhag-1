@@ -10,6 +10,14 @@ export { default as ParentPage } from "./Admin/StudentPage/ParentPage";
 export { default as PurchasesPage } from "./Admin/StudentPage/PurchasesPage";
 export { default as ProgressPage } from "./Admin/StudentPage/ProgressPage";
 export { default as LoginHistoryPage } from "./Admin/StudentPage/LoginHistoryPage";
+/* Education Page */
+export { default as CategoriesPage } from "./Admin/EducationPage/Category/CategoriesPage";
+export { default as AddCategoryPage } from "./Admin/EducationPage/Category/AddCategoryPage";
+export { default as EditCategoryPage } from "./Admin/EducationPage/Category/EditCategoryPage";
+
+export { default as SubjectPage } from "./Admin/EducationPage/SubjectPage";
+export { default as BundlesPage } from "./Admin/EducationPage/BundlesPage";
+export { default as QuestionsBankPage } from "./Admin/EducationPage/QuestionsBankPage";
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
 export { default as CountriesPage } from "./Admin/SettingPage/Countries/CountriesPage";

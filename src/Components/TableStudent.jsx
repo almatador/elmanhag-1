@@ -8,7 +8,7 @@ import { useAuth } from '../Context/Auth';
 import axios from 'axios';
 import Loading from './Loading';
 
-const TableData = ({ tableTitle, data, setStudent, editPath }) => {
+const TableStudent = ({ tableTitle, data, setStudent, editPath }) => {
        const [isDeleting, setIsDeleting] = useState(false);
        const [openDialog, setOpenDialog] = useState(null);
 
@@ -170,4 +170,4 @@ const TableData = ({ tableTitle, data, setStudent, editPath }) => {
        );
 };
 
-export default TableData;
+export default TableStudent;
