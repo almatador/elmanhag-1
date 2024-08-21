@@ -27,6 +27,9 @@ export { default as CitiesPage } from "./Admin/SettingPage/Cities/CitiesPage";
 export { default as AddCityPage } from "./Admin/SettingPage/Cities/AddCityPage";
 export { default as EditCityPage } from "./Admin/SettingPage/Cities/EditCityPage";
 export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelations/ParentRelationPage";
+export { default as AddParentRelationPage } from "./Admin/SettingPage/ParentRelations/AddParentRelationPage";
+export { default as EditParentRelationPage } from "./Admin/SettingPage/ParentRelations/EditParentRelationPage";
+
 export { default as OperationsPage } from "./Admin/SettingPage/Operations/OperationsPage";
 
 /* Admin Page */

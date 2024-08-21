@@ -11,9 +11,6 @@ import HeaderPageSection from "../../Components/HeaderPageSection";
 
 
 const CountriesLayout = () => {
-       const handleButtonClick = () => {
-              alert('Button clicked!');
-       };
 
        const navigate = useNavigate();
 
