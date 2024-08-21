@@ -30,6 +30,7 @@ import {
   CitiesAD,
   ParentRelationAD,
   OperationsAD,
+  AddCategoryLayout,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -82,6 +83,7 @@ import ParentUser from "./Layouts/Admin/ParentUser";
 import AdminUser from "./Layouts/Admin/AdminUser";
 import LayoutAdmin from "./Layouts/Admin/LayoutAdmin";
 import EditProfilePage from "./Layouts/Admin/EditeProfileStudent";
+import EditCategoryLayout from "./Layouts/Admin/EditCategoryLayout";
 
 
 export const ContextNumper = createContext()
@@ -125,6 +127,29 @@ const AppLayoutAdmin = () => (
   </>
 );
 const AppLayoutStudentUser = () => (
+  <>
+    <Outlet />
+  </>
+);
+/* Education */
+const AppLayoutCategories = () => (
+  <>
+    {/* <div className="flex flex-col items-center gap-y-4"> */}
+    <Outlet />
+    {/* </div> */}
+  </>
+);
+const AppLayoutSubject = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutBundles = () => (
+  <>
+    <Outlet />
+  </>
+);
+const AppLayoutQuestionsBank = () => (
   <>
     <Outlet />
   </>
@@ -302,9 +327,6 @@ export const router = createBrowserRouter([
   },
 
 
-
-
-
   {
     element: <AppLayoutSuperAdmin />,
     path: '/DashboardSuperAdmin',
@@ -338,7 +360,7 @@ export const router = createBrowserRouter([
                 element: <AppLayoutStudentAdd />,
               },
               {
-                path: 'edit',
+                path: 'edit/:profileId',
                 element: <AppLayoutStudentProfile />,
                 children: [
                   {
@@ -384,20 +406,54 @@ export const router = createBrowserRouter([
           },
           {
             path: 'categories',
-            element: <CategoriesEducation />,
+            element: <AppLayoutCategories />,
+            children: [
+              {
+                path: '', // This defines the default route for "categories"
+                element: <CategoriesEducation />,
+              },
+              {
+                path: 'add',
+                element: <AddCategoryLayout />
+              },
+              {
+                path: 'edit/:categoryId',
+                element: <EditCategoryLayout />
+              }
+
+            ]
           },
           {
             path: 'subject',
-            element: <SubjectEducation />,
+            element: <AppLayoutSubject />,
+            children: [
+              {
+                index: true, // Default route for "subject"
+                element: <SubjectEducation />,
+              }
+            ]
           },
           {
             path: 'bundles',
-            element: <BundlesEducation />,
+            element: <AppLayoutBundles />,
+            children: [
+              {
+                index: true, // Default route for "bundles"
+                element: <BundlesEducation />,
+              }
+            ]
           },
           {
             path: 'questionsbank',
-            element: <QuestionsBankEducation />,
-          },
+            element: <AppLayoutQuestionsBank />,
+            children: [
+              {
+                index: true, // Default route for "questionsbank"
+                element: <QuestionsBankEducation />,
+              }
+            ]
+          }
+          ,
           {
             path: 'homework',
             element: <HomeWorkAD />,
