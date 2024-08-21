@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { StudentDataContext } from '../../../Layouts/Admin/EditeProfileStudent';
 
 const ProfilePage = () => {
-  return (
-    <div>ProfilePage</div>
-  )
-}
+  const student = useContext(StudentDataContext);
 
-export default ProfilePage
+  return (
+    <>
+      {student ? (
+        <>
+          <h1>Name: {student.city_id}</h1>
+          <h1>Name: {student.name}</h1>
+          <div>ProfilePage</div>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </>
+  );
+};
+
+export default ProfilePage;
