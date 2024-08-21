@@ -105,7 +105,7 @@ const CategoriesPage = () => {
                      <div className="w-full flex flex-col gap-y-3">
                             <div className="sm:w-full xl:w-1/12">
                                    <Link to="add">
-                                          <ButtonAdd Text={"Add"} BgColor={"mainColor"} Color={"secoundColor"} Size={"xl"} />
+                                          <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
                                    </Link>
                             </div>
                             <div className="w-full flex items-center justify-between mt-4 overflow-x-auto">

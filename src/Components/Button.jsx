@@ -2,7 +2,7 @@ import React from 'react';
 import { FaPlus } from "react-icons/fa";
 import Loading from './Loading';
 
-const Button = ({ stateLoding,Width, Text, BgColor = "bg-mainColor", type = "button", Color = "text-white", Size = "text-2xl", px = "px-7", rounded = "rounded-xl", handleClick }) => {
+const Button = ({ stateLoding, Width, Text, BgColor = "bg-mainColor", type = "button", Color = "text-white", Size = "text-2xl", px = "px-7", rounded = "rounded-xl", handleClick }) => {
   return (
     <button
       type={type}
@@ -15,13 +15,13 @@ const Button = ({ stateLoding,Width, Text, BgColor = "bg-mainColor", type = "but
   );
 };
 
-const ButtonAdd = ({ Text, BgColor = "bg-mainColor", Color = "text-white", Size = "text-2xl", handleClick ,iconColor = "currentColor"}) => {
+const ButtonAdd = ({ Text = 'Add', BgColor = "white", Color = "thirdColor", Size = "xl", handleClick, iconColor = "mainColor" }) => {
   return (
     <button
       type='button'
-      className={`w-full flex items-center gap-x-2 justify-center ${BgColor} ${Color} ${Size} font-medium rounded-lg px-4 py-3 outline-none`}
+      className={`flex items-center gap-x-2 justify-center bg-${BgColor} font-medium rounded-lg px-4 py-3 outline-none`}
       onClick={handleClick}>
-      <FaPlus  color={iconColor}/> {Text}
+      <FaPlus className={`text-${iconColor}`} /> <span className={`text-${Color} text-${Size}`}> {Text}</span>
     </button>
   );
 };
