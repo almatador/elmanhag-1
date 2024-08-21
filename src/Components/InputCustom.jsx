@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
-const InputCustom = ({ type, borderColor = "mainColor", placeholder, value, onChange }) => {
+const InputCustom = ({ type, borderColor = "none", placeholder, value, readonly = false, onChange, onClick }) => {
        const [show, setShow] = useState(false)
        if (type === "password") {
               return (<>
@@ -14,8 +14,15 @@ const InputCustom = ({ type, borderColor = "mainColor", placeholder, value, onCh
        }
        return (
               <>
-                     <input type={type} placeholder={placeholder} className={`w-full border-2 rounded-2xl border-${borderColor} outline-none px-2 py-3 text-2xl font-normal text-thirdColor`} value={value}
-                            onChange={onChange} required />
+                     <input type={type}
+                            placeholder={placeholder}
+                            className={`w-full border-2 rounded-2xl border-${borderColor} 
+                       outline-none px-2 py-3 text-2xl font-normal text-thirdColor`}
+                            value={value}
+                            onChange={onChange}
+                            onClick={onClick}
+                            readOnly={readonly}
+                            required />
               </>
 
        )

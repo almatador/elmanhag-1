@@ -12,8 +12,10 @@ import { Wroning } from '../../../../Components/Icons/All_Icons';
 const CategoriesPage = () => {
        const auth = useAuth();
        const [isLoading, setIsLoading] = useState(true);
+       const [allCategories, setAllCategories] = useState(null);
        const [categories, setCategories] = useState(null);
        const [categoriesChanged, setCategoriesChanged] = useState(false); // Change tracker
+       const [parentCategories, setParentCategories] = useState(); // Change tracker
 
        const [isDeleting, setIsDeleting] = useState(false);
        const [openDialog, setOpenDialog] = useState(null);
@@ -27,7 +29,10 @@ const CategoriesPage = () => {
                             },
                      });
                      if (response.status === 200) {
+                            // setCategories(response.data);
+                            setAllCategories(response.data);
                             setCategories(response.data.categories);
+                            // setParentCategories(response.data.parent_categories);
                      }
               } catch (error) {
                      console.error('Error fetching Categories data:', error);
@@ -97,7 +102,7 @@ const CategoriesPage = () => {
               return <div className='text-mainColor text-2xl font-bold w-full h-full flex items-center justify-center'>No Categories data available</div>;
        }
 
-       localStorage.setItem("Categories", JSON.stringify(categories));
+       localStorage.setItem("Categories", JSON.stringify(allCategories));
 
 
        return (
@@ -135,7 +140,7 @@ const CategoriesPage = () => {
                                                                <td
                                                                       className="min-w-[150px] sm:min-w-[100px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"
                                                                >
-                                                                      {category?.category_id || "null"}
+                                                                      {category.parent_category?.name || "null"}
                                                                </td>
                                                                <td
                                                                       className="min-w-[150px] sm:min-w-[100px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"

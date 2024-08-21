@@ -222,7 +222,7 @@ const StudentPage = () => {
                                    </div>
                                    <div className="sm:w-full xl:w-1/12 mx-auto">
                                           <Link to="add">
-                                                 <ButtonAdd Text={"Add"} BgColor={"mainColor"} Color={"secoundColor"} Size={"xl"} />
+                                                 <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} Size={"xl"} />
                                           </Link>
                                    </div>
                             </div>

@@ -24,7 +24,6 @@
   direction: rtl;
 }
 
-.scrollSec {}
 
 /* width Scroll*/
 .scrollSec::-webkit-scrollbar {
@@ -77,13 +76,11 @@
 
 .listUser {
   list-style: inside !important;
-  /* color: #D01025; */
 }
 
 .LinksHomeDS a.active {
   color: #D01025 !important;
   font-weight: bold;
-  /* transition: all 0.3s ease-in-out; */
 }
 
 .MenuSide a.active {
@@ -94,34 +91,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* .TapAuth a.active {
-  padding-right: 20px;
-  border-radius: 0 12px 12px 0;
-  background: #fff;
-  color: red !important;
-  transition: all 0.3s ease-in-out;
-} */
-
 .contentSection {
   position: absolute;
-  /* height: 100%; */
   top: 0;
   left: 1%;
   border-radius: 0 15px 15px 0;
   background: #fff;
-  /* padding: 20px;
-  padding-top: 0; */
 }
-
-/*
-.childSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -2%;
-  width: 10%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 0 13px 13px 0;
-  z-index: 1;
-} */

@@ -518,10 +518,10 @@ export const router = createBrowserRouter([
               {
                 path: 'add',
                 element: <AddCountryLayout />,
-              },{
-                path: 'edit',
+              }, {
+                path: 'edit/:countryId',
                 element: <EditCountryLayout />,
-              
+
               }
             ]
           },
@@ -537,10 +537,10 @@ export const router = createBrowserRouter([
               {
                 path: 'add',
                 element: <AddCityLayout />,
-              },{
-                path: 'edit',
+              }, {
+                path: 'edit/:cityId',
                 element: <EditCityLayout />,
-              
+
               }
             ]
           },
@@ -555,10 +555,10 @@ export const router = createBrowserRouter([
               {
                 path: 'add',
                 element: <AddParentRelationLayout />,
-              },{
-                path: 'edit',
+              }, {
+                path: 'edit/:parentRelationId',
                 element: <EditParentRelationLayout />,
-              
+
               }
             ]
           },
