@@ -27,9 +27,12 @@ import {
   AddStudentpage,
   AdminRolesAD,
   CountriesAD,
-  CitiesAD,
+ 
   ParentRelationAD,
   OperationsAD,
+  AddCityLayout,
+  EditCityLayout,
+  CitiesLayout,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -460,7 +463,16 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: '',
-                element: <CitiesAD />,
+                element: <CitiesLayout />,
+              }
+              ,
+              {
+                path: 'add',
+                element: <AddCityLayout />,
+              },{
+                path: 'edit',
+                element: <EditCityLayout />,
+              
               }
             ]
           },

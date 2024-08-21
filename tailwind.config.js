@@ -12,11 +12,13 @@ export default {
         mainColor: "#D01025",
         secoundColor: "#fff",
         thirdColor: "#6B6B6B",
+        AddText:"#5E5E5E",
       },
       backgroundColor: {
         mainBgColor: "#7E7D7D",
         secoundBgColor: "#cccccc",
         thirdBgColor: "#f6f6f6",
+        AddButton:"#ffffff",
       },
       screens: {
         sm: "320px",

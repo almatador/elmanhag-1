@@ -13,7 +13,9 @@ export { default as LoginHistoryPage } from "./Admin/StudentPage/LoginHistoryPag
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
 export { default as CountriesPage } from "./Admin/SettingPage/CountriesPage";
-export { default as CitiesPage } from "./Admin/SettingPage/CitiesPage";
+export { default as CitiesPage } from "./Admin/SettingPage/Cities/CitiesPage";
+export { default as AddCityPage } from "./Admin/SettingPage/Cities/AddCityPage";
+export { default as EditCityPage } from "./Admin/SettingPage/Cities/EditCityPage";
 export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelationPage";
 export { default as OperationsPage } from "./Admin/SettingPage/OperationsPage";
 
