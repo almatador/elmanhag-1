@@ -19,7 +19,7 @@ const OperationsLayout = () => {
   };
   return (
     <>
-      {/* <div className="w-full flex items-center flex-col gap-y-3">
+      <div className="w-full flex items-center flex-col gap-y-3">
        <HeaderPageSection handleClick={handleGoBack} name={'Operations'} />
 
         <div className="flex justify-between">
@@ -72,7 +72,7 @@ const OperationsLayout = () => {
         </div>
 
         <OperationsPage />
-      </div> */}
+      </div>
     </>
   );
 };
