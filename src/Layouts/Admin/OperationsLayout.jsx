@@ -7,7 +7,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import HeaderPageSection from "../../Components/HeaderPageSection";
 
 
-const OperationsAD = () => {
+const OperationsLayout = () => {
   const handleButtonClick = () => {
     alert("Button clicked!");
   };
@@ -19,7 +19,7 @@ const OperationsAD = () => {
   };
   return (
     <>
-      <div className="w-full flex items-center flex-col gap-y-3">
+      {/* <div className="w-full flex items-center flex-col gap-y-3">
        <HeaderPageSection handleClick={handleGoBack} name={'Operations'} />
 
         <div className="flex justify-between">
@@ -72,9 +72,9 @@ const OperationsAD = () => {
         </div>
 
         <OperationsPage />
-      </div>
+      </div> */}
     </>
   );
 };
 
-export default OperationsAD;
+export default OperationsLayout;

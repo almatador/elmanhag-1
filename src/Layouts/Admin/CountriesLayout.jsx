@@ -10,7 +10,7 @@ import HeaderPageSection from "../../Components/HeaderPageSection";
 
 
 
-const CountriesAD = () => {
+const CountriesLayout = () => {
        const handleButtonClick = () => {
               alert('Button clicked!');
             };
@@ -30,8 +30,8 @@ const CountriesAD = () => {
                      <Link to={"add"}>
                      <ButtonAdd 
                             Text="Add"
-                            BgColor="bg-AddButton"
-                            Color="text-AddText"
+                            BgColor="AddButton"
+                            Color="AddText"
                             handleClick={handleButtonClick}
                             iconColor="mainColor"
                             />
@@ -44,4 +44,4 @@ const CountriesAD = () => {
        )
 }
 
-export default CountriesAD
+export default CountriesLayout
