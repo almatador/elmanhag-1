@@ -30,7 +30,9 @@ export { default as ReportsAD } from "./Admin/ReportsAD";
 /* Setting */
 export { default as AdminRolesAD } from "./Admin/AdminRolesAD";
 export { default as CountriesAD } from "./Admin/CountriesAD";
-export { default as CitiesAD } from "./Admin/CitiesAD";
+export { default as CitiesLayout } from "./Admin/CitiesLayout";
+export { default as AddCityLayout } from "./Admin/AddCityLayout";
+export { default as EditCityLayout } from "./Admin/EditCityLayout";
 export { default as ParentRelationAD } from "./Admin/ParentRelationAD";
 export { default as OperationsAD } from "./Admin/OperationsAD";
 /* ////Setting */

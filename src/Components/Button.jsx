@@ -15,15 +15,17 @@ const Button = ({ stateLoding,Width, Text, BgColor = "bg-mainColor", type = "but
   );
 };
 
-const ButtonAdd = ({ Text, BgColor = "bg-mainColor", Color = "text-white", Size = "text-2xl", handleClick }) => {
+const ButtonAdd = ({ Text, BgColor = "bg-mainColor", Color = "text-white", Size = "text-2xl", handleClick ,iconColor = "currentColor"}) => {
   return (
     <button
       type='button'
-      className={`w-full flex items-center gap-x-2 justify-center bg-${BgColor} text-${Color} text-${Size} font-medium rounded-lg px-4 py-3 outline-none`}
+      className={`w-full flex items-center gap-x-2 justify-center ${BgColor} ${Color} ${Size} font-medium rounded-lg px-4 py-3 outline-none`}
       onClick={handleClick}>
-      <FaPlus /> {Text}
+      <FaPlus  color={iconColor}/> {Text}
     </button>
   );
 };
 
 export { Button, ButtonAdd };
+
+

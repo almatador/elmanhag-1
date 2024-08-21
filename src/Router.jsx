@@ -27,9 +27,12 @@ import {
   AddStudentpage,
   AdminRolesAD,
   CountriesAD,
-  CitiesAD,
+ 
   ParentRelationAD,
   OperationsAD,
+  AddCityLayout,
+  EditCityLayout,
+  CitiesLayout,
   AddCategoryLayout,
 } from "./Layouts/AllLayouts";
 
@@ -516,7 +519,16 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: '',
-                element: <CitiesAD />,
+                element: <CitiesLayout />,
+              }
+              ,
+              {
+                path: 'add',
+                element: <AddCityLayout />,
+              },{
+                path: 'edit',
+                element: <EditCityLayout />,
+              
               }
             ]
           },
