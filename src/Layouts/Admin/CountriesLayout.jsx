@@ -10,7 +10,7 @@ import HeaderPageSection from "../../Components/HeaderPageSection";
 
 
 
-const CountriesAD = () => {
+const CountriesLayout = () => {
        const handleButtonClick = () => {
               alert('Button clicked!');
        };
@@ -38,4 +38,4 @@ const CountriesAD = () => {
        )
 }
 
-export default CountriesAD
+export default CountriesLayout

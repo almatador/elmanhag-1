@@ -7,7 +7,7 @@ import { ParentRelationPage } from "../../Pages/AllPages";
 import HeaderPageSection from "../../Components/HeaderPageSection";
 
 
-const ParentRelationAD = () => {
+const ParentRelationLayout = () => {
   const handleButtonClick = () => {
     alert("Button clicked!");
   };
@@ -39,4 +39,4 @@ const ParentRelationAD = () => {
   );
 };
 
-export default ParentRelationAD;
+export default ParentRelationLayout;
