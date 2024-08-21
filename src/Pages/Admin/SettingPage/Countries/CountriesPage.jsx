@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Table from '../../../Components/Table';
+import Table from '../../../../Components/Table';
 import axios from 'axios';
-import { useAuth } from '../../../Context/Auth';
-import Loading from '../../../Components/Loading';
+import { useAuth } from '../../../../Context/Auth';
+import Loading from '../../../../Components/Loading';
 
 const CountriesPage = () => {
   const [countries, setCountries] = useState([]);

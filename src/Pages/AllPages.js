@@ -12,12 +12,14 @@ export { default as ProgressPage } from "./Admin/StudentPage/ProgressPage";
 export { default as LoginHistoryPage } from "./Admin/StudentPage/LoginHistoryPage";
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
-export { default as CountriesPage } from "./Admin/SettingPage/CountriesPage";
+export { default as CountriesPage } from "./Admin/SettingPage/Countries/CountriesPage";
+export { default as AddCountryPage } from "./Admin/SettingPage/Countries/AddCountryPage";
+export { default as EditCountryPage } from "./Admin/SettingPage/Countries/EditCountryPage";
 export { default as CitiesPage } from "./Admin/SettingPage/Cities/CitiesPage";
 export { default as AddCityPage } from "./Admin/SettingPage/Cities/AddCityPage";
 export { default as EditCityPage } from "./Admin/SettingPage/Cities/EditCityPage";
-export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelationPage";
-export { default as OperationsPage } from "./Admin/SettingPage/OperationsPage";
+export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelations/ParentRelationPage";
+export { default as OperationsPage } from "./Admin/SettingPage/Operations/OperationsPage";
 
 /* Admin Page */
 /* Teachers Page */

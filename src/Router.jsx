@@ -26,13 +26,16 @@ import {
   QuestionsBankEducation,
   AddStudentpage,
   AdminRolesAD,
-  CountriesAD,
- 
-  ParentRelationAD,
-  OperationsAD,
+  AddCountryLayout,
+  EditCountryLayout,
+  CountriesLayout,
+  ParentRelationLayout,
+  AddParentRelationLayout,
+  EditParentRelationLayout,
   AddCityLayout,
   EditCityLayout,
   CitiesLayout,
+  OperationsLayout,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -453,7 +456,16 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: '',
-                element: <CountriesAD />,
+                element: <CountriesLayout />,
+              }
+              ,
+              {
+                path: 'add',
+                element: <AddCountryLayout />,
+              },{
+                path: 'edit',
+                element: <EditCountryLayout />,
+              
               }
             ]
           },
@@ -482,7 +494,15 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: '',
-                element: <ParentRelationAD />,
+                element: <ParentRelationLayout />,
+              },
+              {
+                path: 'add',
+                element: <AddParentRelationLayout />,
+              },{
+                path: 'edit',
+                element: <EditParentRelationLayout />,
+              
               }
             ]
           },
@@ -492,7 +512,7 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: '',
-                element: <OperationsAD />,
+                element: <OperationsLayout />,
               }
             ]
           }

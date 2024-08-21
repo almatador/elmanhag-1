@@ -27,12 +27,21 @@ export { default as SupportAD } from "./Admin/SupportAD";
 export { default as ReportsAD } from "./Admin/ReportsAD";
 /* Setting */
 export { default as AdminRolesAD } from "./Admin/AdminRolesAD";
-export { default as CountriesAD } from "./Admin/CountriesAD";
+
+export { default as CountriesLayout } from "./Admin/CountriesLayout";
+export { default as AddCountryLayout } from "./Admin/AddCountryLayout";
+export { default as EditCountryLayout } from "./Admin/EditCountryLayout";
+
 export { default as CitiesLayout } from "./Admin/CitiesLayout";
 export { default as AddCityLayout } from "./Admin/AddCityLayout";
 export { default as EditCityLayout } from "./Admin/EditCityLayout";
-export { default as ParentRelationAD } from "./Admin/ParentRelationAD";
-export { default as OperationsAD } from "./Admin/OperationsAD";
+
+export { default as ParentRelationLayout } from "./Admin/ParentRelationLayout";
+export { default as AddParentRelationLayout } from "./Admin/AddParentRelationLayout";
+export { default as EditParentRelationLayout } from "./Admin/EditParentRelationLayout";
+
+
+export { default as OperationsLayout } from "./Admin/OperationsLayout";
 /* ////Setting */
 export { default as NoticeBoardAD } from "./Admin/NoticeBoardAD";
 
