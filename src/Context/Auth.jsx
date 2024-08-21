@@ -28,6 +28,7 @@ export const ContextProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("sidebarState")
     localStorage.removeItem("students")
+    localStorage.removeItem("Categories")
 
   };
     const toastSuccess = (text) => {

@@ -135,7 +135,7 @@ const CategoriesPage = () => {
                                                                <td
                                                                       className="min-w-[150px] sm:min-w-[100px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"
                                                                >
-                                                                      {category?.parent_category || "null"}
+                                                                      {category?.category_id || "null"}
                                                                </td>
                                                                <td
                                                                       className="min-w-[150px] sm:min-w-[100px] sm:w-2/12 lg:w-2/12 py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"
@@ -193,6 +193,7 @@ const CategoriesPage = () => {
                                                                              )}
                                                                       </div>
                                                                </td>
+
                                                         </tr>
                                                  ))}
                                           </tbody>
