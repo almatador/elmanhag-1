@@ -1,8 +1,11 @@
 import React from 'react'
+import { SubjectPage } from '../../Pages/AllPages'
 
 const SubjectEducation = () => {
   return (
-    <div>SubjectEducation</div>
+    <>
+      <SubjectPage />
+    </>
   )
 }
 
