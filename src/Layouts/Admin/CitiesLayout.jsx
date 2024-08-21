@@ -18,7 +18,7 @@ const CitiesLayout = () => {
   };
   return (
     <>
-       <div className="w-full flex items-center flex-col gap-y-3">
+      <div className="w-full flex items-start flex-col gap-y-3">
         {/* <div className="flex items-center justify-between w-full">
           <button className="flex-none" onClick={handleGoBack}>
             <FaAngleLeft
@@ -30,17 +30,15 @@ const CitiesLayout = () => {
           </div>
         </div> */}
         <HeaderPageSection handleClick={handleGoBack} name={'Cities'} />
-        <div className="flex justify-start">
-          <Link to={'add'}>
+        <Link to={'add'}>
           <ButtonAdd
             Text="Add"
             BgColor="bg-AddButton"
             Color="text-AddText"
             handleClick={handleButtonClick}
             iconColor="#D01025"
-            />
-            </Link>
-        </div>
+          />
+        </Link>
         <CitiesPage />
       </div>
     </>
