@@ -30,15 +30,11 @@ const CitiesLayout = () => {
           </div>
         </div> */}
         <HeaderPageSection handleClick={handleGoBack} name={'Cities'} />
-        <Link to={'add'}>
-          <ButtonAdd
-            Text="Add"
-            BgColor="bg-AddButton"
-            Color="text-AddText"
-            handleClick={handleButtonClick}
-            iconColor="#D01025"
-          />
-        </Link>
+        <div className="sm:w-full xl:w-1/12">
+          <Link to="add">
+            <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
+          </Link>
+        </div>
         <CitiesPage />
       </div>
     </>
