@@ -13,7 +13,6 @@ const EditCountryLayout = () => {
 
   const { countryId } = useParams();
 
-
   useEffect(() => {
     const countries = JSON.parse(localStorage.getItem('Countries')) || [];
     console.log('Countries from local storage:', countries); // Debugging log

@@ -13,7 +13,6 @@ const AddCountryPage = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-
     const handleGoBack = () => {
         navigate(-1, { replace: true });
     };

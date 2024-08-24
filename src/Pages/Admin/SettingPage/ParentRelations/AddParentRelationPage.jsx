@@ -5,8 +5,6 @@ import { Button } from '../../../../Components/Button';
 import { useAuth } from '../../../../Context/Auth'
 import { useNavigate } from 'react-router-dom'
 
-
-
 const AddParentRelationPage = () => {
     const auth = useAuth();
     const [nameEn, setNameEn] = useState('');
@@ -41,10 +39,10 @@ const AddParentRelationPage = () => {
             console.log('Submitting data:', requestData);
 
             const response = await axios.post('https://bdev.elmanhag.shop/admin/Settings/relation/add', requestData ,{
-              headers: {
-                     Authorization: `Bearer ${auth.user.token}`,
-              },
-       });
+                headers: {
+                    Authorization: `Bearer ${auth.user.token}`,
+                },
+        });
 
             if (response.status === 200) {
                 console.log('Parent Relation added successfully');
