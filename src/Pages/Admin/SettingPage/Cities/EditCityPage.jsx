@@ -1,9 +1,213 @@
-import React from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import axios from 'axios';
+import InputCustom from '../../../../Components/InputCustom';
+import { Button } from '../../../../Components/Button';
+import { useAuth } from '../../../../Context/Auth';
+import DropDownMenu from '../../../../Components/DropDownMenu';
+import { useNavigate, useParams } from 'react-router-dom';
+import { cityEditContext } from '../../../../Layouts/Admin/EditCityLayout';
 
 const EditCityPage = () => {
-  return (
-    <div>EditCityPage</div>
-  )
-}
+    const cityData = useContext(cityEditContext);
+    const auth = useAuth();
+    const [cityContent,setCityContent] = useState()
+    const { cityId } = useParams(); // Extract cityId from URL params
+    const [countries, setCountries] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
-export default EditCityPage
+    // Form state
+    const [nameEn, setNameEn] = useState('');
+    const [nameAr, setNameAr] = useState('');
+    const [status, setStatus] = useState('');
+    const [countryId, setCountryId] = useState('');
+    const [selectedCountry, setSelectedCountry] = useState('Choose Country');
+    const [openCountry, setOpenCountry] = useState(false);
+
+    const dropdownCountryRef = useRef();
+
+    useEffect(() => {
+        // Set the initial values based on cityData
+        if (cityData) {
+            setCityContent(cityData)
+            setNameEn(cityData?.name || '');
+            setNameAr(cityData?.ar_name || '');
+            setStatus(cityData?.status || 0);
+            setCountryId(cityData?.country_id || '');
+            setSelectedCountry(cityData?.country?.name || 'Choose Country');
+        }
+    }, [cityData]);
+
+    useEffect(() => {
+        const fetchCountries = async () => {
+            try {
+                const countriesResponse = await axios.get('https://bdev.elmanhag.shop/admin/Settings/countries', {
+                    headers: {
+                        Authorization: `Bearer ${auth.user.token}`,
+                    },
+                });
+
+                if (countriesResponse.status === 200) {
+                    setCountries(countriesResponse.data.countries || []);
+                }
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        };
+
+        fetchCountries();
+    }, [auth.user.token]);
+
+    // Handle opening and closing of dropdown menu
+    const handleOpenCountry = () => setOpenCountry(!openCountry);
+
+    // Handle country selection
+    const handleCountry = (e) => {
+        const inputElement = e.currentTarget.querySelector('.inputVal');
+        const selectedOptionName = e.currentTarget.textContent.trim();
+        const selectedOptionValue = inputElement ? parseInt(inputElement.value) : '';
+
+        setSelectedCountry(selectedOptionName);
+        setCountryId(selectedOptionValue);
+        setOpenCountry(false);
+    };
+
+    // Handle form submission
+    const handleSubmitEdit = async (event) => {
+        event.preventDefault();
+
+        // if (!nameEn || !nameAr || !status || !countryId) {
+        //     auth.toastError('Please fill out all fields.');
+        //     return;
+        // }
+
+        if (!nameEn) {
+            auth.toastError('Please enter the English name.');
+            return;
+        }
+        if (!nameAr) {
+            auth.toastError('Please enter the Arabic name.');
+            return;
+        }
+        if (!countryId) {
+                auth.toastError('Please enter the Country.');
+                return;
+        }
+        if (!status) {
+            auth.toastError('Please enter the status.');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const requestData = {
+                name: nameEn,
+                ar_name: nameAr,
+                status: status,
+                country_id: countryId,
+            };
+
+            const response = await axios.put(`https://bdev.elmanhag.shop/admin/Settings/cities/update/${cityContent.id}`, requestData, {
+                headers: {
+                    Authorization: `Bearer ${auth.user.token}`,
+                },
+            });
+
+            if (response.status === 200) {
+                auth.toastSuccess('City updated successfully!');
+                handleGoBack();
+                        } else {
+                auth.toastError('Failed to update city.');
+            }
+        } catch (error) {
+            console.error('Error updating city:', error?.response?.data?.errors || 'Network error');
+            auth.toastError('Error updating city.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Handle back navigation
+    const handleGoBack = () => {
+        navigate(-1, { replace: true });
+    };
+
+    // Close dropdown when clicking outside
+    const handleClickOutside = (event) => {
+        if (dropdownCountryRef.current && !dropdownCountryRef.current.contains(event.target)) {
+            setOpenCountry(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    return (
+        <>
+            <form onSubmit={handleSubmitEdit} className='w-full flex flex-col items-start justify-center gap-y-3'>
+                <div className="grid md:gap-8 grid-cols-2 lg:w-[70%] sm:w-full">
+                    <div className="w-full">
+                        <InputCustom
+                            type="text"
+                            borderColor="secoundColor"
+                            placeholder="Name En"
+                            value={nameEn}
+                            onChange={(e) => setNameEn(e.target.value)}
+                            width="w-full"
+                        />
+                    </div>
+                    <div className="w-full">
+                        <InputCustom
+                            type="text"
+                            borderColor="secoundColor"
+                            placeholder="Name Ar"
+                            value={nameAr}
+                            onChange={(e) => setNameAr(e.target.value)}
+                            width="w-full"
+                        />
+                    </div>
+                    <div className="w-full">
+                        <InputCustom
+                            type="text"
+                            borderColor="secoundColor"
+                            placeholder="Status"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            width="w-full"
+                        />
+                    </div>
+                    <div className="w-full">
+                        <DropDownMenu
+                            ref={dropdownCountryRef}
+                            handleOpen={handleOpenCountry}
+                            handleOpenOption={handleCountry}
+                            stateoption={selectedCountry}
+                            openMenu={openCountry}
+                            options={countries}
+                        />
+                    </div>
+                </div>
+                <div className="flex gap-4 mt-6">
+                    <Button
+                        stateLoading={loading}
+                        Width="64"
+                        Text="Done"
+                        handleClick={handleSubmitEdit}
+                    />
+                    <Button
+                        stateLoading={false}
+                        Width="64"
+                        Text="Cancel"
+                        Color="text-mainColor"
+                        BgColor="bg-thirdBgColor"
+                        handleClick={handleGoBack}
+                    />
+                </div>
+            </form>
+        </>
+    );
+};
+
+export default EditCityPage;

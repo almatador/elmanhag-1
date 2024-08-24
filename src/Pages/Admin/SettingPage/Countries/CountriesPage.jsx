@@ -20,7 +20,6 @@ const CountriesPage = () => {
         }
       });
       if (response.status === 200) {
-        console.log(response.data);
         setCountries(response.data.countries || []);
       }
     } catch (error) {
@@ -43,8 +42,6 @@ const CountriesPage = () => {
       });
 
       if (response.status === 200) {
-        console.log("Deleted country with id:", id);
-        // Update the countries state to remove the deleted country
         setCountries(countries.filter(country => country.id !== id));
       } else {
         console.error('Failed to delete country:', response);
@@ -67,6 +64,9 @@ const CountriesPage = () => {
     status: country.status,
   }));
 
+  localStorage.setItem("Countries", JSON.stringify(countries));
+
+
   return (
     <>
       {loading ? (
@@ -77,7 +77,7 @@ const CountriesPage = () => {
         <Table
           headers={headers}
           data={tableData}
-          editPath="/dashboardAdmin/countries/addcountry"
+          editPath="edit"
           handleDelete={handleDelete}
           pageName="Countries"
         />
@@ -87,6 +87,5 @@ const CountriesPage = () => {
 }
 
 export default CountriesPage;
-
 
 
