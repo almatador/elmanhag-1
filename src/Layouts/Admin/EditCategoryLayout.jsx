@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { EditCategoryPage } from '../../Pages/AllPages';
 import HeaderPageSection from '../../Components/HeaderPageSection';
@@ -6,6 +6,7 @@ import HeaderPageSection from '../../Components/HeaderPageSection';
 export const CategoryDataContext = createContext();
 
 const EditCategoryLayout = () => {
+  const [allCategoriesData, setAllCategoriesData] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
   const [categoryEdit, setCategoryEdit] = useState(null);
   const { categoryId } = useParams();
@@ -13,43 +14,42 @@ const EditCategoryLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const allCategoriesData = () => {
-      const allCategories = JSON.parse(localStorage.getItem('Categories'));
-      if (allCategories) {
-        setAllCategories(allCategories);
+    const fetchCategoriesData = () => {
+      const storedCategories = JSON.parse(localStorage.getItem('Categories'));
+      if (storedCategories) {
+        setAllCategoriesData(storedCategories);
+        setAllCategories(storedCategories.categories); // Corrected line
       }
     };
-    allCategoriesData();
+    fetchCategoriesData(); // Renamed function to avoid shadowing
   }, []);
 
   useEffect(() => {
     if (allCategories.length > 0 && categoryId) {
-      const filteredCategories = allCategories.find(
+      const filteredCategory = allCategories.find(
         (category) => category.id === parseInt(categoryId)
       );
-      setCategoryEdit(filteredCategories);
+      setCategoryEdit(filteredCategory);
     }
   }, [allCategories, categoryId]);
 
-  console.log('allCategories', allCategories);
+  console.log('allCategoriesData', allCategoriesData); // Logging the whole array
+  // console.log('allCategories', allCategories);
   console.log('CategoryEdit', categoryEdit);
-
-
-
-
 
   const handleGoBack = () => {
     navigate(-1, { replace: true });
-  }
+  };
+
   return (
     <>
       <HeaderPageSection handleClick={handleGoBack} name="Edit" />
       <CategoryDataContext.Provider value={categoryEdit}>
         <EditCategoryPage />
       </CategoryDataContext.Provider>
-      <h1>Profile ID: {categoryId}</h1>
-    </>
-  )
-}
 
-export default EditCategoryLayout
+    </>
+  );
+};
+
+export default EditCategoryLayout;

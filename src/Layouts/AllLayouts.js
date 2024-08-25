@@ -42,8 +42,11 @@ export { default as ParentRelationLayout } from "./Admin/ParentRelationLayout";
 export { default as AddParentRelationLayout } from "./Admin/AddParentRelationLayout";
 export { default as EditParentRelationLayout } from "./Admin/EditParentRelationLayout";
 
-
 export { default as OperationsLayout } from "./Admin/OperationsLayout";
+
+export { default as PaymentMethodLayout } from "./Admin/PaymentMethodLayout";
+export { default as AddPaymentMethodLayout } from "./Admin/AddPaymentMethodLayout";
+export { default as EditPaymentMethodLayout } from "./Admin/EditPaymentMethodLayout";
 /* ////Setting */
 export { default as NoticeBoardAD } from "./Admin/NoticeBoardAD";
 
