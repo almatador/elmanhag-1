@@ -30,6 +30,10 @@ export { default as ParentRelationPage } from "./Admin/SettingPage/ParentRelatio
 export { default as AddParentRelationPage } from "./Admin/SettingPage/ParentRelations/AddParentRelationPage";
 export { default as EditParentRelationPage } from "./Admin/SettingPage/ParentRelations/EditParentRelationPage";
 
+export { default as PaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/PaymentMethodPage";
+export { default as AddPaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/AddPaymentMethodPage";
+export { default as EditPaymentMethodPage } from "./Admin/SettingPage//PaymentMethod/EditPaymentMethodPage";
+
 export { default as OperationsPage } from "./Admin/SettingPage/Operations/OperationsPage";
 
 /* Admin Page */
