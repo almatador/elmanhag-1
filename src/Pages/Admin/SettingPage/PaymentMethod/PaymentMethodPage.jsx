@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { ButtonAdd } from '../../../../Components/Button'
 
 const PaymentMethodPage = () => {
        return (
@@ -8,6 +10,7 @@ const PaymentMethodPage = () => {
                                    <Link to="add">
                                           <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
                                    </Link>
+                                   
                             </div>
                      </div>
               </>
