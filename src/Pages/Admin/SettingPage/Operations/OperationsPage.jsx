@@ -54,7 +54,7 @@ const OperationsPage = () => {
         <Table
           headers={headers}
           data={tableData}
-          editPath="/dashboardAdmin/countries/addcountry"
+          editPath="edit"
           handleDelete={handleDelete}
         />
       )}
