@@ -38,8 +38,8 @@ const AddCategoryPage = () => {
        };
 
        const handleClick = (e) => {
-              const isChecked = e.target.checked;
-              setCategoryActive(isChecked ? 1 : 0);
+                     const isChecked = e.target.checked;
+                     setCategoryActive(isChecked ? 1 : 0);
        };
 
        const handleSelectParent = (e) => {

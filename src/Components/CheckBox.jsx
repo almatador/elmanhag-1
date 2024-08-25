@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const CheckBox = ({ handleClick }) => {
-       return (
-              <StyledWrapper>
-                     <label className="switch">
-                            <input type="checkbox" onClick={handleClick} />
-                            <span className="slider" />
-                     </label>
-              </StyledWrapper>
-       );
+const CheckBox = ({ handleClick, checked }) => {
+  return (
+    <StyledWrapper>
+      <label className="switch">
+        <input type="checkbox" onClick={handleClick} checked={checked} readOnly/>
+        <span className="slider" />
+      </label>
+    </StyledWrapper>
+  );
 };
 
 const StyledWrapper = styled.div`

@@ -60,6 +60,7 @@ const LinksSidebar = () => {
        const [isActiveCities, setIsActiveCities] = useState(savedState.isActiveCities ?? false);
        const [isActiveParentRelation, setIsActiveParentRelation] = useState(savedState.isActiveParentRelation ?? false);
        const [isActiveOperations, setIsActiveOperations] = useState(savedState.isActiveOperations ?? false);
+       const [isActivePaymentMethod, setIsActivePaymentMethod] = useState(savedState.isActivePaymentMethod ?? false);
        /* ///Childern Setting */
        const [isActiveNoticeBoard, setIsActiveNoticeBoard] = useState(savedState.isActiveNoticeBoard ?? false);
 
@@ -94,6 +95,7 @@ const LinksSidebar = () => {
                      isActiveCities,
                      isActiveParentRelation,
                      isActiveOperations,
+                     isActivePaymentMethod,
                      isActiveNoticeBoard,
               };
               localStorage.setItem('sidebarState', JSON.stringify(sidebarState));
@@ -126,6 +128,7 @@ const LinksSidebar = () => {
               isActiveCities,
               isActiveParentRelation,
               isActiveOperations,
+              isActivePaymentMethod,
               isActiveNoticeBoard]);
 
 
@@ -159,6 +162,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* User */
@@ -192,6 +196,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* Childern User */
@@ -225,6 +230,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickParent = () => {
@@ -257,6 +263,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickTeacher = () => {
@@ -289,6 +296,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickAdmin = () => {
@@ -321,6 +329,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* ///Childern User */
@@ -355,6 +364,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* Childern Education */
@@ -388,6 +398,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickSubject = () => {
@@ -420,6 +431,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickBundles = () => {
@@ -452,6 +464,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickQuestionsBank = () => {
@@ -484,6 +497,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* ///Childern Education */
@@ -517,6 +531,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickRevision = () => {
@@ -549,6 +564,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickExams = () => {
@@ -581,6 +597,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickLive = () => {
@@ -613,6 +630,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickMarketing = () => {
@@ -645,6 +663,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickFinancial = () => {
@@ -677,6 +696,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickAffiliate = () => {
@@ -709,6 +729,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickSupport = () => {
@@ -741,6 +762,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        const handleClickReports = () => {
@@ -773,6 +795,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        };
        /* Setting */
@@ -805,6 +828,7 @@ const LinksSidebar = () => {
               setIsActiveCountries(false)
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
 
        };
@@ -839,6 +863,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        }
        const handleClickCountries = () => {
@@ -871,6 +896,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        }
        const handleClickCities = () => {
@@ -903,6 +929,7 @@ const LinksSidebar = () => {
               setIsActiveCities(true)
               setIsActiveParentRelation(false)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        }
        const handleClickParentRelatioen = () => {
@@ -935,6 +962,7 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(true)
               setIsActiveOperations(false)
+              setIsActivePaymentMethod(false)
               setIsActiveNoticeBoard(false)
        }
        const handleClickOperations = () => {
@@ -967,6 +995,40 @@ const LinksSidebar = () => {
               setIsActiveCities(false)
               setIsActiveParentRelation(false)
               setIsActiveOperations(true)
+              setIsActivePaymentMethod(false)
+              setIsActiveNoticeBoard(false)
+       }
+       const handleClickPaymentMethod = () => {
+              setIsActiveDashboard(false);
+              setIsActiveUser(false);
+              setOpenListUser(false);
+              setIsActiveStudent(false);
+              setIsActiveParent(false);
+              setIsActiveTeacher(false);
+              setIsActiveAdmin(false);
+              setIsActiveEducation(false)
+              setOpenListEducation(false)
+              setIsActiveCategories(false)
+              setIsActiveSubject(false)
+              setIsActiveBundles(false)
+              setIsActiveQuestionsBank(false)
+              setIsActiveHomeWork(false)
+              setIsActiveRevision(false)
+              setIsActivExams(false)
+              setIsActiveLive(false)
+              setIsActiveMarketing(false)
+              setIsActiveFinancial(false)
+              setIsActiveAffiliate(false)
+              setIsActiveSupport(false)
+              setIsActiveReports(false)
+              setIsActiveSetting(true)
+              setOpenListSetting(true)
+              setIsActiveAdminRoles(false)
+              setIsActiveCountries(false)
+              setIsActiveCities(false)
+              setIsActiveParentRelation(false)
+              setIsActiveOperations(false)
+              setIsActivePaymentMethod(true)
               setIsActiveNoticeBoard(false)
        }
        /* /////Setting Childern */
@@ -1080,6 +1142,7 @@ const LinksSidebar = () => {
                                           <li className={`${isActiveCities ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"cities"} onClick={handleClickCities}>Cities</Link></li>
                                           <li className={`${isActiveParentRelation ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"parentRelation"} onClick={handleClickParentRelatioen}>Parent Relation</Link></li>
                                           <li className={`${isActiveOperations ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"operations"} onClick={handleClickOperations}>Operations</Link></li>
+                                          <li className={`${isActivePaymentMethod ? "text-mainColor" : "text-thirdColor"} hover:text-mainColor text-lg font-[400]`}><Link to={"paymentMethod"} onClick={handleClickPaymentMethod}>PaymentMethod</Link></li>
                                    </ul>
                             </div>
                             <Link to="noticeboard" onClick={handleClickNoticeBoard} className={`${isActiveNoticeBoard ? 'active' : ''} w-full flex items-center justify-start pl-6 py-[9px] gap-x-5`}>
