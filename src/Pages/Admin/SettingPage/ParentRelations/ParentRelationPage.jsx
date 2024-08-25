@@ -3,6 +3,8 @@ import Table from "../../../../Components/Table";
 import axios from "axios";
 import { useAuth } from "../../../../Context/Auth";
 import Loading from "../../../../Components/Loading";
+import { Link } from 'react-router-dom';
+import { ButtonAdd } from '../../../../Components/Button';
 
 const ParentRelationPage = () => {
   const [parentRelation, setParentRelation] = useState([]); // State to hold the parent relation data
@@ -68,6 +70,12 @@ const ParentRelationPage = () => {
 
   return (
     <>
+    <div className="w-full flex flex-col gap-y-3">
+        <div className="sm:w-full xl:w-1/12">
+              <Link to="add">
+                    <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
+              </Link>
+        </div>
       {loading ? (
         <div className="w-1/4 h-full flex items-start mt-[10%] justify-center m-auto">
         <Loading />
@@ -80,6 +88,7 @@ const ParentRelationPage = () => {
           pageName = "Parent Relation"
         />
       )}
+      </div>
     </>
   );
 };

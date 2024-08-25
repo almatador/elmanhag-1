@@ -30,12 +30,10 @@ const EditCityLayout = () => {
 }, [cityId]);
   return (
     <>
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Edit Cities" />
       <cityEditContext.Provider value={cityEdit}>
         <EditCityPage />
       </cityEditContext.Provider>
-    </div>
     </>
   )
 }

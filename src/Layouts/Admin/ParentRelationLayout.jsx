@@ -1,10 +1,7 @@
 import React from "react";
 import TitleHeader from "../../Components/TitleHeader";
-import { ButtonAdd } from "../../Components/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { FaAngleLeft } from "react-icons/fa";
-import { ParentRelationPage } from "../../Pages/AllPages";
-import HeaderPageSection from "../../Components/HeaderPageSection";
+import {useNavigate } from "react-router-dom";
+
 
 const ParentRelationLayout = () => {
   const navigate = useNavigate();
@@ -13,17 +10,11 @@ const ParentRelationLayout = () => {
   };
   return (
     <>
-      <div className="w-full flex items-start flex-col gap-y-3">
-                            <HeaderPageSection handleClick={handleGoBack} name={'Parent relation'} />
 
-                            <div className="sm:w-full xl:w-1/12">
-                                   <Link to="add">
-                                          <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
-                                   </Link>
-                            </div>
-
+                     <div className="flex flex-col items-center gap-y-4">
+                            <TitleHeader text={"Parent relation"} spaceBottom={3} />
                             <ParentRelationPage />
-       </div>
+                     </div>
     </>
   );
 };

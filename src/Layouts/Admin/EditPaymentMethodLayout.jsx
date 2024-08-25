@@ -29,12 +29,10 @@ const EditPaymentMethodLayout = () => {
 
   return (
     <> 
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Edit Payment Method" />
       <paymentMethodEditContext.Provider value={paymentMethodEdit}>
         <EditPaymentMethodPage />
       </paymentMethodEditContext.Provider>
-    </div>
     </>  )
 }
 

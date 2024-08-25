@@ -1,10 +1,7 @@
 import React from "react";
 import TitleHeader from "../../Components/TitleHeader";
-import { ButtonAdd } from "../../Components/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { FaAngleLeft } from "react-icons/fa";
+import {useNavigate } from "react-router-dom";
 import { PaymentMethodPage } from "../../Pages/AllPages";
-import HeaderPageSection from "../../Components/HeaderPageSection";
 
 const PaymentMethodLayout = () => {
        const navigate = useNavigate();
@@ -22,7 +19,4 @@ const PaymentMethodLayout = () => {
 }
 
 export default PaymentMethodLayout
-
-
-
 
