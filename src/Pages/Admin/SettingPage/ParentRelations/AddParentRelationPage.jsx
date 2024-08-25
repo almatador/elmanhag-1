@@ -47,6 +47,7 @@ const AddParentRelationPage = () => {
             if (response.status === 200) {
                 console.log('Parent Relation added successfully');
                 auth.toastSuccess('Parent Relation added successfully!');
+                handleGoBack()
             } else {
                 console.error('Failed to add Parent Relation:', response.status, response.statusText);
                 auth.toastError('Failed to add Parent Relation.');
