@@ -88,7 +88,7 @@ const AddCityPage = () => {
 
             console.log('Submitting data:', requestData);
 
-            const response = await axios.post('https://bdev.elmanhag.shop/admin/Settings/countries/add', requestData, {
+            const response = await axios.post('https://bdev.elmanhag.shop/admin/Settings/cities/add', requestData, {
                 headers: {
                     Authorization: `Bearer ${auth.user.token}`,
                 },
@@ -97,9 +97,8 @@ const AddCityPage = () => {
             if (response.status === 200) {
                 console.log('City added successfully');
                 auth.toastSuccess('City added successfully!');
-                console.log('Submitting success data:', requestData);
+                handleGoBack()
             } else {
-                setIsLoading(false)
                 console.error('Failed to add country:', response.status, response.statusText);
                 auth.toastError('Failed to add country.');
 
