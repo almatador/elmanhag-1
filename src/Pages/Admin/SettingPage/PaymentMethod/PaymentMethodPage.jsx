@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { ButtonAdd } from '../../../../Components/Button'
 
 const PaymentMethodPage = () => {
        return (
