@@ -73,7 +73,7 @@ const SignUpPage = () => {
   };
   if (isloading) {
     return (
-      <div className="w-1/4 h-screen flex items-center justify-center m-auto">
+      <div className="w-1/4 h-full flex items-center justify-center m-auto">
         <Loading />
       </div>
     )

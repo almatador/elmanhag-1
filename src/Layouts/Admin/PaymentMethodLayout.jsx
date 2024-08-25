@@ -13,19 +13,11 @@ const PaymentMethodLayout = () => {
   };
        return (
               <>
-              <div className="w-full flex items-start flex-col gap-y-3">
-                     <HeaderPageSection handleClick={handleGoBack} name={'Payment Method'} />
-
-                     <div className="sm:w-full xl:w-1/12">
-                            <Link to="add">
-                                   <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
-                            </Link>
+                     <div className="flex flex-col items-center gap-y-4">
+                            <TitleHeader text={"PaymentMethod"} spaceBottom={3} />
+                            <PaymentMethodPage />
                      </div>
-
-                     <PaymentMethodPage />
-              </div>
-              </>  
-       
+              </>
        )
 }
 
