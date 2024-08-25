@@ -5,7 +5,7 @@ import TitleHeader from '../../Components/TitleHeader'
 const PaymentMethodLayout = () => {
        return (
               <>
-                     <div className="flex flex-col items-center gap-y-4">
+                     <div className="flex flex-col items-center h-full gap-y-4">
                             <TitleHeader text={"PaymentMethod"} spaceBottom={3} />
                             <PaymentMethodPage />
                      </div>

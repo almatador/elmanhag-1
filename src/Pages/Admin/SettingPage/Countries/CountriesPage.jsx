@@ -70,7 +70,7 @@ const CountriesPage = () => {
   return (
     <>
       {loading ? (
-        <div className="w-1/4 h-screen flex items-center justify-center m-auto">
+        <div className="w-1/4 flex items-start mt-[10%] justify-center h-full m-auto">
           <Loading />
         </div>
       ) : (

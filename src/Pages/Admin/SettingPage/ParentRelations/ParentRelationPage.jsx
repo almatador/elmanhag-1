@@ -69,7 +69,7 @@ const ParentRelationPage = () => {
   return (
     <>
       {loading ? (
-        <div className="w-1/4 h-screen flex items-center justify-center m-auto">
+        <div className="w-1/4 h-full flex items-start mt-[10%] justify-center m-auto">
         <Loading />
       </div>      ) : (
         <Table
