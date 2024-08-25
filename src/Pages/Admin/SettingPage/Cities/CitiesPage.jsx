@@ -92,6 +92,9 @@ const CitiesPage = () => {
     }
   };
 
+  localStorage.setItem("Cities", JSON.stringify(cities));
+
+
   return (
     <>
       {loading ? (
@@ -103,7 +106,7 @@ const CitiesPage = () => {
         <Table
           headers={headers}
           data={tableData}
-          editPath="/dashboardAdmin/cities/addcity"
+          editPath="edit"
           handleDelete={handleDelete}
           pageName = "Cities"
         />

@@ -63,16 +63,19 @@ const ParentRelationPage = () => {
     en: PR.name,
   }));
 
+  localStorage.setItem("ParentRelation", JSON.stringify(parentRelation));
+
+
   return (
     <>
       {loading ? (
         <div className="w-1/4 h-screen flex items-center justify-center m-auto">
-       <Loading />
+        <Loading />
       </div>      ) : (
         <Table
           headers={headers}
           data={tableData}
-          editPath="/dashboardAdmin/"
+          editPath="edit"
           handleDelete={handleDelete}
           pageName = "Parent Relation"
         />

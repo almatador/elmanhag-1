@@ -22,7 +22,7 @@ const OperationsLayout = () => {
       <div className="w-full flex items-center flex-col gap-y-3">
        <HeaderPageSection handleClick={handleGoBack} name={'Operations'} />
 
-        <div className="flex justify-between">
+        <div className="w-full flex justify-between">
           <div
             style={{
               display: "flex",
