@@ -29,6 +29,7 @@ export const ContextProvider = ({ children }) => {
     localStorage.removeItem("sidebarState")
     localStorage.removeItem("students")
     localStorage.removeItem("Categories")
+    localStorage.removeItem("subjects")
 
   };
     const toastSuccess = (text) => {
