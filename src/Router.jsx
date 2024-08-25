@@ -37,6 +37,9 @@ import {
   CitiesLayout,
   AddCategoryLayout,
   OperationsLayout,
+  PaymentMethodLayout,
+  AddPaymentMethodLayout,
+  EditPaymentMethodLayout,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -185,6 +188,13 @@ const AppLayoutOperations = () => (
     <Outlet />
   </>
 );
+const AppLayoutPaymentMethod = () => (
+  <>
+    <Outlet />
+  </>
+);
+
+
 const AppLayoutStudentAdd = () => (
   <>
     <AddStudentpage />
@@ -434,9 +444,18 @@ export const router = createBrowserRouter([
             element: <AppLayoutSubject />,
             children: [
               {
-                index: true, // Default route for "subject"
+                path: '', // Default route for "subject"
                 element: <SubjectEducation />,
-              }
+              },
+              /* Add and Edit And show Students and Chapter Page */
+              // {
+              //   path: 'add', // Default route for "subject"
+              //   element: <AddSubjectLayout />,
+              // },
+              // {
+              //   path: 'edit/:subjectId', // Default route for "subject"
+              //   element: <EditSubjectLayout />,
+              // },
             ]
           },
           {
@@ -573,6 +592,24 @@ export const router = createBrowserRouter([
             ]
           }
           ,
+          {
+            path: 'paymentMethod',
+            element: <AppLayoutPaymentMethod />,
+            children: [
+              {
+                path: '',
+                element: <PaymentMethodLayout />,
+              },
+              {
+                path: 'add',
+                element: <AddPaymentMethodLayout />,
+              },
+              {
+                path: 'edit/:PaymentMethodId',
+                element: <EditPaymentMethodLayout />,
+              }
+            ]
+          },
           {
             path: 'noticeboard',
             element: <NoticeBoardAD />,
