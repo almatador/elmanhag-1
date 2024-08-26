@@ -71,7 +71,7 @@ const CitiesPage = () => {
     number: index + 1,
     city: city.name,
     country: getCountryNameById(city.country_id), // Use country_id from the city data
-    status: city.status,
+    status: city.status === 1 ? 'Active' : 'Disabled'
   }));
 
   const handleDelete = async (id) => {

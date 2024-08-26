@@ -65,7 +65,7 @@ const CountriesPage = () => {
     id: country.id,
     number: index + 1,
     country: country.name,
-    status: country.status,
+    status: country.status === 1 ? 'Active' : 'Disabled'
   }));
 
   localStorage.setItem("Countries", JSON.stringify(countries));
