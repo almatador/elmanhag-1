@@ -187,7 +187,7 @@ const AddCityPage = () => {
 
                     <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
                         <span className="text-2xl text-thirdColor font-medium">Active:</span>
-                        <CheckBox handleClick={handleClick} checked={cityActive === 1} />
+                        <CheckBox handleClick={handleClick} checked={cityActive} />
                     </div>
                 </div>
                 <div className="flex gap-4 mt-6">
