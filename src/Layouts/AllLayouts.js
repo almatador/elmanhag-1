@@ -22,8 +22,8 @@ export { default as ChapterSubjectLayout } from "./Admin/ChapterSubjectLayout";
 export { default as StudentsSubjectLayout } from "./Admin/StudentsSubjectLayout";
 
 export { default as BundlesEducationLayout } from "./Admin/BundlesEducationLayout";
-export {default as AddBundleLayout} from "./Admin/AddBundleLayout";
-export {default as EditBundleLayout} from "./Admin/EditBundleLayout";
+export {default as AddBundlesLayout} from "./Admin/AddBundlesLayout";
+export {default as EditBundlesLayout} from "./Admin/EditBundlesLayout";
 
 export { default as QuestionsBankEducation } from "./Admin/QuestionsBankEducation";
 /* ////Education */
