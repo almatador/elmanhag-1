@@ -1,6 +1,8 @@
 import React from "react";
 import TitleHeader from "../../Components/TitleHeader";
 import {useNavigate } from "react-router-dom";
+import { ParentRelationPage } from "../../Pages/AllPages";
+
 
 
 const ParentRelationLayout = () => {

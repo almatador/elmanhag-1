@@ -32,7 +32,7 @@ export { default as EditParentRelationPage } from "./Admin/SettingPage/ParentRel
 
 export { default as PaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/PaymentMethodPage";
 export { default as AddPaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/AddPaymentMethodPage";
-export { default as EditPaymentMethodPage } from "./Admin/SettingPage//PaymentMethod/EditPaymentMethodPage";
+export { default as EditPaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/EditPaymentMethodPage";
 
 export { default as OperationsPage } from "./Admin/SettingPage/Operations/OperationsPage";
 
