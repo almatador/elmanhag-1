@@ -15,10 +15,9 @@ export { default as CategoriesPage } from "./Admin/EducationPage/Category/Catego
 export { default as AddCategoryPage } from "./Admin/EducationPage/Category/AddCategoryPage";
 export { default as EditCategoryPage } from "./Admin/EducationPage/Category/EditCategoryPage";
 
-
-export { default as BundlesPage } from "./Admin/EducationPage/Bundle/BundlesPage";
-export { default as AddBundlePage } from "./Admin/EducationPage/Bundle/AddBundlePage";
-export { default as EditBundlePage } from "./Admin/EducationPage/Bundle/EditBundlePage";
+export { default as BundlesPage } from "./Admin/EducationPage/Bundles/BundlesPage";
+export { default as AddBundlesPage } from "./Admin/EducationPage/Bundles/AddBundlesPage";
+export { default as EditBundlesPage } from "./Admin/EducationPage/Bundles/EditBundlesPage";
 
 export { default as SubjectPage } from "./Admin/EducationPage/SubjectPage/SubjectPage";
 export { default as AddSubjectPage } from "./Admin/EducationPage/SubjectPage/AddSubjectPage";

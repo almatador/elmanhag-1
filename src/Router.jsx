@@ -20,12 +20,9 @@ import {
   SupportAD,
   ReportsAD,
   NoticeBoardAD,
-  CategoriesEducation,
-  SubjectEducation,
   BundlesEducationLayout,
   CategoriesEducationLayout,
   SubjectEducationLayout,
-  BundlesEducation,
   QuestionsBankEducation,
   AddStudentpage,
   AdminRolesAD,
@@ -47,6 +44,8 @@ import {
   EditSubjectLayout,
   ChapterSubjectLayout,
   StudentsSubjectLayout,
+  AddBundlesLayout,
+  EditBundlesLayout,
 } from "./Layouts/AllLayouts";
 
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
@@ -476,11 +475,17 @@ export const router = createBrowserRouter([
             element: <AppLayoutBundles />,
             children: [
               {
-                index: true, // Default route for "bundles"
-                element: <BundlesEducationLayout />,
                 path: '', // Default route for "bundles"
-                element: <BundlesEducation />,
-              }
+                element: <BundlesEducationLayout />,
+              },
+              {
+                path: 'add', // Default route for "subject"
+                element: <AddBundlesLayout />,
+              },
+              {
+                path: 'edit/:bundleId', // Default route for "subject"
+                element: <EditBundlesLayout />,
+              },
             ]
           },
           {
