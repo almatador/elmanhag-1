@@ -5,11 +5,11 @@ import TitleHeader from './TitleHeader'
 const HeaderPageSection = ({ handleClick, name }) => {
        return (
               <>
-                     <div className="w-full flex items-center justify-between">
-                            <button type='button' onClick={handleClick}>
+                     <div className="w-full flex items-center justify-start">
+                            <button type='button' className='' onClick={handleClick}>
                                    <IoIosArrowDown className="rotate-90 text-mainColor text-5xl" />
                             </button>
-                            <div className="w-7/12">
+                            <div className="w-full text-center">
                                    <TitleHeader text={name} />
                             </div>
                      </div>

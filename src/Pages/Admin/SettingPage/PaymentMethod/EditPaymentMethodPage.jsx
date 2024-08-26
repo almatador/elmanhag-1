@@ -47,68 +47,13 @@ const EditPaymentMethodPage = () => {
         if (file) {
             setThumbnailFile(file);
             setThumbnails(file.name);
+
         }
     };
 
     const handleGoBack = () => {
         navigate(-1, { replace: true });
     };
-
-
-    // const handleSubmitEdit = async (event) => {
-    //     event.preventDefault();
-
-    //     if (!thumbnails) {
-    //         auth.toastError('Please upload the Thumbnail.');
-    //         return;
-    //     }
-    //     if (!title) {
-    //         auth.toastError('Please enter the Title.');
-    //         return;
-    //     }
-    //     if (!description) {
-    //         auth.toastError('Please enter the Description.');
-    //         return;
-    //     }
-
-    //     console.log('Title:', title);
-    //     console.log('Description:', description);
-    //     console.log('Thumbnail:', thumbnailFile);
-    //     console.log('Status:', paymentActive);
-
-
-    //     setLoading(true);
-    //     try {
-    //         const formData = new FormData();
-    //         formData.append('title', title);
-    //         formData.append('description', description);
-    //         formData.append('thumbnail_link', thumbnailFile); // Append the file
-    //         formData.append('status', paymentActive);
-
-    //         const response = await axios.put(
-    //             `https://bdev.elmanhag.shop/admin/Settings/paymentMethods/update/${paymentContent.id}`,
-    //             requestData,
-    //             {
-    //                 headers: {
-    //                     Authorization: `Bearer ${auth.user.token}`,
-    //                     'Content-Type': 'multipart/form-data',
-    //                 },
-    //             }
-    //         );
-
-    //         if (response.status === 200) {
-    //             auth.toastSuccess('Payment Method updated successfully!');
-    //             handleGoBack();
-    //         } else {
-    //             auth.toastError('Failed to update Payment Method.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error updating Payment Method:', error?.response?.data?.errors || 'Network error');
-    //         auth.toastError('Error updating Payment Method.');
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
 
     const handleSubmitEdit = async (event) => {
         event.preventDefault();
@@ -128,19 +73,20 @@ const EditPaymentMethodPage = () => {
 
         console.log('Title:', title);
         console.log('Description:', description);
-        console.log('Thumbnail:', thumbnails ,thumbnailFile);
+        console.log('Thumbnail:', thumbnails);
+        console.log(' thumbnailFile', thumbnailFile);
         console.log('Status:', paymentActive);
-    
+
         setLoading(true);
         try {
             const queryParams = new URLSearchParams({
-                title:title,
-                description:description,
-                thumbnail_link: thumbnails,
+                title: title,
+                description: description,
+                thumbnail_link: thumbnailFile,
                 status: paymentActive
             }).toString();
-    
-            const response = await axios.put(
+
+            const response = await axios.post(
                 `https://bdev.elmanhag.shop/admin/Settings/paymentMethods/update/${paymentContent.id}?${queryParams}`,
                 {}, // Empty body since we are using query params
                 {
@@ -154,6 +100,7 @@ const EditPaymentMethodPage = () => {
             if (response.status === 200) {
                 auth.toastSuccess('Payment Method updated successfully!');
                 handleGoBack();
+                console.log('queryParams',queryParams)
             } else {
                 auth.toastError('Failed to update Payment Method.');
             }
@@ -164,7 +111,8 @@ const EditPaymentMethodPage = () => {
             setLoading(false);
         }
     };
-
+    console.log('thumbnailFile', thumbnailFile)
+    console.log('thumbnail', thumbnails)
 
     return (
         <>
