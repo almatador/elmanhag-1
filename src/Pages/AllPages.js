@@ -16,7 +16,11 @@ export { default as AddCategoryPage } from "./Admin/EducationPage/Category/AddCa
 export { default as EditCategoryPage } from "./Admin/EducationPage/Category/EditCategoryPage";
 
 export { default as SubjectPage } from "./Admin/EducationPage/SubjectPage";
-export { default as BundlesPage } from "./Admin/EducationPage/BundlesPage";
+
+export { default as BundlesPage } from "./Admin/EducationPage/Bundle/BundlesPage";
+export { default as AddBundlePage } from "./Admin/EducationPage/Bundle/AddBundlePage";
+export { default as EditBundlePage } from "./Admin/EducationPage/Bundle/EditBundlePage";
+
 export { default as QuestionsBankPage } from "./Admin/EducationPage/QuestionsBankPage";
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";

@@ -15,7 +15,11 @@ export { default as CategoriesEducation } from "./Admin/CategoriesEducation";
 export { default as AddCategoryLayout } from "./Admin/AddCategoryLayout";
 export { default as EditCategoryLayout } from "./Admin/EditCategoryLayout";
 export { default as SubjectEducation } from "./Admin/SubjectEducation";
+
 export { default as BundlesEducation } from "./Admin/BundlesEducation";
+export {default as AddBundleLayout} from "./Admin/AddBundleLayout";
+export {default as EditBundleLayout} from "./Admin/EditBundleLayout";
+
 export { default as QuestionsBankEducation } from "./Admin/QuestionsBankEducation";
 /* ////Education */
 export { default as HomeWorkAD } from "./Admin/HomeWorkAD";
