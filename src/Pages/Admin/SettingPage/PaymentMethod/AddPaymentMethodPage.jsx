@@ -156,7 +156,7 @@ const AddPaymentMethodPage = () => {
                     <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-full">
                         <span className="text-2xl text-thirdColor font-medium">Active:</span>
                         <div>
-                            <CheckBox handleClick={handleClick} />
+                            <CheckBox handleClick={handleClick} checked={paymentActive}/>
                         </div>
                     </div>
                 </div>
