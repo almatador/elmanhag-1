@@ -29,12 +29,10 @@ const EditParentRelationLayout = () => {
 
   return (
     <> 
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Edit Parent Relation" />
       <parentRelationEditContext.Provider value={parentRelationEdit}>
         <EditParentRelationPage />
       </parentRelationEditContext.Provider>
-    </div>
     </>  )
 }
 

@@ -13,30 +13,28 @@ const EditPaymentMethodLayout = () => {
 
   const [paymentMethodEdit,setPaymentMethodEdit] = useState(null)
 
-  const { paymentMethodId } = useParams();
+  const { PaymentMethodId } = useParams();
 
   useEffect(() => {
-    const paymentMethods = JSON.parse(localStorage.getItem('PaymentMethod')) || [];
+    const paymentMethods = JSON.parse(localStorage.getItem('PaymentMethods')) || [];
     console.log('Payment Method from local storage:', paymentMethods); // Debugging log
 
     if (paymentMethods.length > 0) {
-        const payment_Method = paymentMethods.find(c => c.id === parseInt(paymentMethodId));
+        const payment_Method = paymentMethods.find(c => c.id === parseInt(PaymentMethodId));
         console.log('Selected Payment Methods:', payment_Method); // Debugging log
 
         setPaymentMethodEdit(payment_Method)
     } else {
         console.warn('No Payment Method available in local storage.'); // Warn if no countries are found
     }
-}, [paymentMethodId]);
+}, [PaymentMethodId]);
 
   return (
     <> 
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Edit Payment Method" />
       <paymentMethodEditContext.Provider value={paymentMethodEdit}>
         <EditPaymentMethodPage />
       </paymentMethodEditContext.Provider>
-    </div>
     </>  )
 }
 

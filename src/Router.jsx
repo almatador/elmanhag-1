@@ -20,6 +20,9 @@ import {
   SupportAD,
   ReportsAD,
   NoticeBoardAD,
+  CategoriesEducation,
+  SubjectEducation,
+  BundlesEducationLayout,
   CategoriesEducationLayout,
   SubjectEducationLayout,
   BundlesEducation,
@@ -473,6 +476,8 @@ export const router = createBrowserRouter([
             element: <AppLayoutBundles />,
             children: [
               {
+                index: true, // Default route for "bundles"
+                element: <BundlesEducationLayout />,
                 path: '', // Default route for "bundles"
                 element: <BundlesEducation />,
               }

@@ -2,19 +2,25 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import InputCustom from '../../../../Components/InputCustom';
 import { Button } from '../../../../Components/Button';
-import { useAuth } from '../../../../Context/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../../Context/Auth';
+import { useNavigate } from 'react-router-dom';
+import CheckBox from '../../../../Components/CheckBox';
 
 const AddCountryPage = () => {
     const auth = useAuth();
     const [nameEn, setNameEn] = useState('');
     const [nameAr, setNameAr] = useState('');
-    const [status, setStatus] = useState('');
+    const [countryActive, setCountryActive] = useState(0);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleGoBack = () => {
         navigate(-1, { replace: true });
+    };
+
+    const handleClick = (e) => {
+        const isChecked = e.target.checked;
+        setCountryActive(isChecked ? 1 : 0);
     };
     
     const handleSubmitAdd = async (event) => {
@@ -28,31 +34,27 @@ const AddCountryPage = () => {
             auth.toastError('Please enter the Arabic name.');
             return;
         }
-        if (!status) {
-            auth.toastError('Please enter the status.');
-            return;
-        }
 
         setLoading(true);
         try {
             const requestData = {
                 name: nameEn,
                 ar_name: nameAr,
-                status: status,
+                status: countryActive,
             };
 
             console.log('Submitting data:', requestData);
 
-            const response = await axios.post('https://bdev.elmanhag.shop/admin/Settings/countries/add', requestData ,{
-            headers: {
+            const response = await axios.post('https://bdev.elmanhag.shop/admin/Settings/countries/add', requestData, {
+                headers: {
                     Authorization: `Bearer ${auth.user.token}`,
-            },
-    });
+                },
+            });
 
             if (response.status === 200) {
                 console.log('Country added successfully');
                 auth.toastSuccess('Country added successfully!');
-                handleGoBack()
+                handleGoBack();
             } else {
                 console.error('Failed to add country:', response.status, response.statusText);
                 auth.toastError('Failed to add country.');
@@ -72,7 +74,6 @@ const AddCountryPage = () => {
             setLoading(false);
         }
     };
-
 
     return (
         <>
@@ -98,15 +99,11 @@ const AddCountryPage = () => {
                             width="w-full"
                         />
                     </div>
-                    <div className="w-full">
-                        <InputCustom
-                            type="text"
-                            borderColor="secoundColor"
-                            placeholder="Status"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            width="w-full"
-                        />
+                    <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
+                            <span className="text-2xl text-thirdColor font-medium">Active:</span>
+                            <div>
+                                <CheckBox handleClick={handleClick} checked={countryActive}/>
+                            </div>
                     </div>
                 </div>
                 <div className="flex gap-4 mt-6">

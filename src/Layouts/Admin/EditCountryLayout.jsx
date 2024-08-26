@@ -28,12 +28,10 @@ const EditCountryLayout = () => {
 }, [countryId]);
   return (
     <>
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Edit Countries" />
       <countryEditContext.Provider value={countryEdit}>
         <EditCountryPage />
       </countryEditContext.Provider>
-    </div>
     </>
   )
 }

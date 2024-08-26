@@ -15,12 +15,16 @@ export { default as CategoriesPage } from "./Admin/EducationPage/Category/Catego
 export { default as AddCategoryPage } from "./Admin/EducationPage/Category/AddCategoryPage";
 export { default as EditCategoryPage } from "./Admin/EducationPage/Category/EditCategoryPage";
 
+
+export { default as BundlesPage } from "./Admin/EducationPage/Bundle/BundlesPage";
+export { default as AddBundlePage } from "./Admin/EducationPage/Bundle/AddBundlePage";
+export { default as EditBundlePage } from "./Admin/EducationPage/Bundle/EditBundlePage";
+
 export { default as SubjectPage } from "./Admin/EducationPage/SubjectPage/SubjectPage";
 export { default as AddSubjectPage } from "./Admin/EducationPage/SubjectPage/AddSubjectPage";
 export { default as EditSubjectPage } from "./Admin/EducationPage/SubjectPage/EditSubjectPage";
 export { default as ChapterSubjectPage } from "./Admin/EducationPage/SubjectPage/ChapterSubjectPage";
 export { default as StudentsSubjectPage } from "./Admin/EducationPage/SubjectPage/StudentsSubjectPage";
-export { default as BundlesPage } from "./Admin/EducationPage/BundlesPage";
 export { default as QuestionsBankPage } from "./Admin/EducationPage/QuestionsBankPage";
 /* Setting Page */
 export { default as AdminRolesPage } from "./Admin/SettingPage/AdminRolesPage";
@@ -36,7 +40,7 @@ export { default as EditParentRelationPage } from "./Admin/SettingPage/ParentRel
 
 export { default as PaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/PaymentMethodPage";
 export { default as AddPaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/AddPaymentMethodPage";
-export { default as EditPaymentMethodPage } from "./Admin/SettingPage//PaymentMethod/EditPaymentMethodPage";
+export { default as EditPaymentMethodPage } from "./Admin/SettingPage/PaymentMethod/EditPaymentMethodPage";
 
 export { default as OperationsPage } from "./Admin/SettingPage/Operations/OperationsPage";
 

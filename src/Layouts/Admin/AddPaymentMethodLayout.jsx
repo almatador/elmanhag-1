@@ -11,10 +11,8 @@ const AddPaymentMethodLayout = () => {
   };
   return (
     <>
-    <div className="flex flex-col items-center gap-y-9">
       <HeaderPageSection handleClick={handleGoBack} name="Add Payment Method" />
       <AddPaymentMethodPage />
-    </div>
     </>
   )
 }

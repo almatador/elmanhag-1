@@ -2,56 +2,35 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import InputCustom from '../../../../Components/InputCustom';
 import { Button } from '../../../../Components/Button';
+import  CheckBox  from '../../../../Components/CheckBox';
 import { useAuth } from '../../../../Context/Auth';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { countryEditContext } from '../../../../Layouts/Admin/EditCountryLayout';
 
 const EditCountryPage = () => {
-    const countryData = useContext(countryEditContext)
-
     const auth = useAuth();
-    const [countryContent,setCountryContent] = useState()
+    const countryData = useContext(countryEditContext);
     const [nameEn, setNameEn] = useState('');
     const [nameAr, setNameAr] = useState('');
-    const [status, setStatus] = useState('');
+    const [countryActive, setCountryActive] = useState(0);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    console.log('countryData',countryData)
-    useEffect(()=>{
-        setCountryContent(countryData)
-        setNameEn(countryData?.name || '')
-        setNameAr(countryData?.name_ar || '')
-        setStatus(countryData?.status || 0)
-    },[countryData])
-    console.log('countryContent',countryContent)
-    console.log('nameEn',nameEn)
-
-    // const { countryId } = useParams();  // Capture the ID from the URL
-    // Retrieve countries from localStorage
-    // useEffect(() => {
-    //     const countries = JSON.parse(localStorage.getItem('Countries')) || [];
-    //     console.log('Countries from local storage:', countries); // Debugging log
-    
-    //     if (countries.length > 0) {
-    //         const country = countries.find(c => c.id === parseInt(countryId));
-    //         console.log('Selected Country:', country); // Debugging log
-    
-    //         if (country) {
-    //             setNameEn(country.name || '');
-    //             setNameAr(country.ar_name || '');
-    //             setStatus(country.status);
-    //         } else {
-    //             console.warn('No country found with the given ID:', countryId); // Warn if no match found
-    //         }
-    //     } else {
-    //         console.warn('No countries available in local storage.'); // Warn if no countries are found
-    //     }
-    // }, [countryId]);
-    
+    useEffect(() => {
+        if (countryData) {
+            setNameEn(countryData.name || '');
+            setNameAr(countryData.ar_name || '');
+            setCountryActive(countryData.status || 0);
+        }
+    }, [countryData]);
 
     const handleGoBack = () => {
         navigate(-1, { replace: true });
+    };
+
+    const handleClick = (e) => {
+        const isChecked = e.target.checked;
+        setCountryActive(isChecked ? 1 : 0);
     };
 
     const handleSubmitEdit = async (event) => {
@@ -65,20 +44,16 @@ const EditCountryPage = () => {
             auth.toastError('Please enter the Arabic name.');
             return;
         }
-        if (!status) {
-            auth.toastError('Please enter the status.');
-            return;
-        }
 
         setLoading(true);
         try {
             const requestData = {
                 name: nameEn,
                 ar_name: nameAr,
-                status: status,
+                status: countryActive,
             };
 
-            const response = await axios.put(`https://bdev.elmanhag.shop/admin/Settings/countries/update/${countryContent.id}`, requestData, {
+            const response = await axios.put(`https://bdev.elmanhag.shop/admin/Settings/countries/update/${countryData.id}`, requestData, {
                 headers: {
                     Authorization: `Bearer ${auth.user.token}`,
                 },
@@ -87,15 +62,22 @@ const EditCountryPage = () => {
             if (response.status === 200) {
                 auth.toastSuccess('Country updated successfully!');
                 handleGoBack();
-                        } else {
-                auth.toastError('Failed to update Country.');
+            } else {
+                auth.toastError('Failed to update country.');
             }
         } catch (error) {
-            console.error('Error updating Country:', error?.response?.data?.errors || 'Network error');
-            auth.toastError('Error updating Country.');
+            console.error('Error updating country:', error?.response?.data?.errors || 'Network error');
+            const errorMessages = error?.response?.data?.errors;
+            let errorMessageString = 'Error occurred';
+
+            if (errorMessages) {
+                errorMessageString = Object.values(errorMessages).flat().join(' ');
+            }
+
+            auth.toastError('Error', errorMessageString);
         } finally {
             setLoading(false);
-        }      
+        }
     };
 
     return (
@@ -122,15 +104,11 @@ const EditCountryPage = () => {
                             width="w-full"
                         />
                     </div>
-                    <div className="w-full">
-                        <InputCustom
-                            type="text"
-                            borderColor="secoundColor"
-                            placeholder="Status"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            width="w-full"
-                        />
+                    <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
+                            <span className="text-2xl text-thirdColor font-medium">Active:</span>
+                            <div>
+                                <CheckBox handleClick={handleClick} checked={countryActive} />
+                            </div>
                     </div>
                 </div>
                 <div className="flex gap-4 mt-6">
@@ -155,10 +133,6 @@ const EditCountryPage = () => {
 };
 
 export default EditCountryPage;
-
-
-
-
 
 
 

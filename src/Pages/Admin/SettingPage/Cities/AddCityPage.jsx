@@ -6,6 +6,8 @@ import { useAuth } from '../../../../Context/Auth';
 import DropDownMenu from '../../../../Components/DropDownMenu';
 // import Loading from '../../../../Components/Loading';
 import { useNavigate } from 'react-router-dom'
+import CheckBox from '../../../../Components/CheckBox';
+
 
 
 const AddCityPage = () => {
@@ -22,16 +24,18 @@ const AddCityPage = () => {
     // Form state
     const [nameEn, setNameEn] = useState('');
     const [nameAr, setNameAr] = useState('');
-    const [status, setStatus] = useState('');
+    // const [status, setStatus] = useState('');
+    const [cityActive, setCityActive] = useState('');
+
 
     const dropdownCountryRef = useRef();
 
     // Fetch admin data and countries from localStorage
     useEffect(() => {
-        const storedAdminData = JSON.parse(localStorage.getItem('students'));
+        const storedAdminData = JSON.parse(localStorage.getItem('Countries'));
         if (storedAdminData) {
             setAdminData(storedAdminData);
-            setCountries(storedAdminData.countries || []);
+            setCountries(storedAdminData || []);
         }
     }, []);
 
@@ -56,6 +60,11 @@ const AddCityPage = () => {
         console.log('Country ID:', selectedOptionValue);
     };
 
+    const handleClick = (e) => {
+        const isChecked = e.target.checked;
+        setCityActive(isChecked ? 1 : 0);
+    };
+
     // Handle form submission
     const handleSubmitAdd = async (event) => {
         event.preventDefault();
@@ -68,10 +77,10 @@ const AddCityPage = () => {
             auth.toastError('Please enter the Arabic name.');
             return;
         }
-        if (!status) {
-            auth.toastError('Please enter the status.');
-            return;
-        }
+        // if (!status) {
+        //     auth.toastError('Please enter the status.');
+        //     return;
+        // }
         if (!countryId) {
             auth.toastError('Please choose a country.');
             return;
@@ -82,7 +91,7 @@ const AddCityPage = () => {
             const requestData = {
                 name: nameEn,
                 ar_name: nameAr,
-                status:status,
+                status:cityActive,
                 country_id: countryId,
             };
 
@@ -155,7 +164,7 @@ const AddCityPage = () => {
                             width="w-full"
                         />
                     </div>
-                    <div className="w-full">
+                    {/* <div className="w-full">
                         <InputCustom
                             type="text"
                             borderColor="secoundColor"
@@ -164,7 +173,7 @@ const AddCityPage = () => {
                             onChange={(e) => setStatus(e.target.value)}
                             width="w-full"
                         />
-                    </div>
+                    </div> */}
                     <div className="w-full">
                         <DropDownMenu
                             ref={dropdownCountryRef}
@@ -174,6 +183,11 @@ const AddCityPage = () => {
                             openMenu={openCountry}
                             options={countries}
                         />
+                    </div>
+
+                    <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
+                        <span className="text-2xl text-thirdColor font-medium">Active:</span>
+                        <CheckBox handleClick={handleClick} checked={cityActive} />
                     </div>
                 </div>
                 <div className="flex gap-4 mt-6">

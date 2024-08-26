@@ -6,11 +6,12 @@ import { useAuth } from '../../../../Context/Auth';
 import DropDownMenu from '../../../../Components/DropDownMenu';
 import { useNavigate, useParams } from 'react-router-dom';
 import { cityEditContext } from '../../../../Layouts/Admin/EditCityLayout';
+import CheckBox from '../../../../Components/CheckBox';
 
 const EditCityPage = () => {
     const cityData = useContext(cityEditContext);
     const auth = useAuth();
-    const [cityContent,setCityContent] = useState()
+    const [cityContent, setCityContent] = useState();
     const { cityId } = useParams(); // Extract cityId from URL params
     const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const EditCityPage = () => {
     // Form state
     const [nameEn, setNameEn] = useState('');
     const [nameAr, setNameAr] = useState('');
-    const [status, setStatus] = useState('');
+    const [cityActive, setCityActive] = useState('');
     const [countryId, setCountryId] = useState('');
     const [selectedCountry, setSelectedCountry] = useState('Choose Country');
     const [openCountry, setOpenCountry] = useState(false);
@@ -29,10 +30,10 @@ const EditCityPage = () => {
     useEffect(() => {
         // Set the initial values based on cityData
         if (cityData) {
-            setCityContent(cityData)
+            setCityContent(cityData);
             setNameEn(cityData?.name || '');
             setNameAr(cityData?.ar_name || '');
-            setStatus(cityData?.status || 0);
+            setCityActive(cityData?.status || 0);  // Assuming `status` indicates active status
             setCountryId(cityData?.country_id || '');
             setSelectedCountry(cityData?.country?.name || 'Choose Country');
         }
@@ -72,14 +73,14 @@ const EditCityPage = () => {
         setOpenCountry(false);
     };
 
+    const handleClick = (e) => {
+        const isChecked = e.target.checked;
+        setCityActive(isChecked ? 1 : 0);
+    };
+
     // Handle form submission
     const handleSubmitEdit = async (event) => {
         event.preventDefault();
-
-        // if (!nameEn || !nameAr || !status || !countryId) {
-        //     auth.toastError('Please fill out all fields.');
-        //     return;
-        // }
 
         if (!nameEn) {
             auth.toastError('Please enter the English name.');
@@ -90,11 +91,7 @@ const EditCityPage = () => {
             return;
         }
         if (!countryId) {
-                auth.toastError('Please enter the Country.');
-                return;
-        }
-        if (!status) {
-            auth.toastError('Please enter the status.');
+            auth.toastError('Please select a country.');
             return;
         }
 
@@ -103,7 +100,7 @@ const EditCityPage = () => {
             const requestData = {
                 name: nameEn,
                 ar_name: nameAr,
-                status: status,
+                status: cityActive,
                 country_id: countryId,
             };
 
@@ -116,7 +113,7 @@ const EditCityPage = () => {
             if (response.status === 200) {
                 auth.toastSuccess('City updated successfully!');
                 handleGoBack();
-                        } else {
+            } else {
                 auth.toastError('Failed to update city.');
             }
         } catch (error) {
@@ -146,7 +143,7 @@ const EditCityPage = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmitEdit} className='w-full flex flex-col items-start justify-center gap-y-3'>
+            <form onSubmit={handleSubmitEdit} className="w-full flex flex-col items-start justify-center gap-y-3">
                 <div className="grid md:gap-8 grid-cols-2 lg:w-[70%] sm:w-full">
                     <div className="w-full">
                         <InputCustom
@@ -169,16 +166,6 @@ const EditCityPage = () => {
                         />
                     </div>
                     <div className="w-full">
-                        <InputCustom
-                            type="text"
-                            borderColor="secoundColor"
-                            placeholder="Status"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            width="w-full"
-                        />
-                    </div>
-                    <div className="w-full">
                         <DropDownMenu
                             ref={dropdownCountryRef}
                             handleOpen={handleOpenCountry}
@@ -187,6 +174,10 @@ const EditCityPage = () => {
                             openMenu={openCountry}
                             options={countries}
                         />
+                    </div>
+                    <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
+                        <span className="text-2xl text-thirdColor font-medium">Active:</span>
+                        <CheckBox handleClick={handleClick} checked={cityActive} />
                     </div>
                 </div>
                 <div className="flex gap-4 mt-6">

@@ -3,6 +3,8 @@ import Table from '../../../../Components/Table';
 import axios from 'axios';
 import { useAuth } from '../../../../Context/Auth';
 import Loading from '../../../../Components/Loading';
+import { Link } from 'react-router-dom';
+import { ButtonAdd } from '../../../../Components/Button';
 
 const CitiesPage = () => {
   const [cities, setCities] = useState([]);
@@ -69,7 +71,7 @@ const CitiesPage = () => {
     number: index + 1,
     city: city.name,
     country: getCountryNameById(city.country_id), // Use country_id from the city data
-    status: city.status,
+    status: city.status === 1 ? 'Active' : 'Disabled'
   }));
 
   const handleDelete = async (id) => {
@@ -84,6 +86,7 @@ const CitiesPage = () => {
         console.log("Deleted item with id:", id);
         // Update the cities state to remove the deleted city
         setCities(cities.filter(city => city.id !== id));
+        auth.toastSuccess('City deleted successfully!');
       } else {
         console.error('Failed to delete city:', response);
       }
@@ -97,11 +100,17 @@ const CitiesPage = () => {
 
   return (
     <>
+    <div className="w-full flex flex-col gap-y-3">
+        <div className="sm:w-full xl:w-1/12">
+              <Link to="add">
+                    <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
+              </Link>
+        </div>
       {loading ? (
         // <div>Loading...</div>
         <div className="w-1/4 flex items-start mt-[10%] justify-center h-full m-auto">
-       <Loading />
-     </div>
+          <Loading />
+        </div>
       ) : (
         <Table
           headers={headers}
@@ -111,6 +120,7 @@ const CitiesPage = () => {
           pageName = "Cities"
         />
       )}
+    </div>
     </>
   );
 };

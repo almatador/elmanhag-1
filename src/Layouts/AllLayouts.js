@@ -21,7 +21,10 @@ export { default as EditSubjectLayout } from "./Admin/EditSubjectLayout";
 export { default as ChapterSubjectLayout } from "./Admin/ChapterSubjectLayout";
 export { default as StudentsSubjectLayout } from "./Admin/StudentsSubjectLayout";
 
-export { default as BundlesEducation } from "./Admin/BundlesEducation";
+export { default as BundlesEducationLayout } from "./Admin/BundlesEducationLayout";
+export {default as AddBundleLayout} from "./Admin/AddBundleLayout";
+export {default as EditBundleLayout} from "./Admin/EditBundleLayout";
+
 export { default as QuestionsBankEducation } from "./Admin/QuestionsBankEducation";
 /* ////Education */
 export { default as HomeWorkAD } from "./Admin/HomeWorkAD";

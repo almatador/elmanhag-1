@@ -3,6 +3,9 @@ import Table from '../../../../Components/Table';
 import axios from 'axios';
 import { useAuth } from '../../../../Context/Auth';
 import Loading from '../../../../Components/Loading';
+import { Link } from 'react-router-dom';
+import { ButtonAdd } from '../../../../Components/Button';
+
 
 const CountriesPage = () => {
   const [countries, setCountries] = useState([]);
@@ -43,6 +46,7 @@ const CountriesPage = () => {
 
       if (response.status === 200) {
         setCountries(countries.filter(country => country.id !== id));
+        auth.toastSuccess('Country deleted successfully!');
       } else {
         console.error('Failed to delete country:', response);
       }
@@ -61,7 +65,7 @@ const CountriesPage = () => {
     id: country.id,
     number: index + 1,
     country: country.name,
-    status: country.status,
+    status: country.status === 1 ? 'Active' : 'Disabled'
   }));
 
   localStorage.setItem("Countries", JSON.stringify(countries));
@@ -69,6 +73,12 @@ const CountriesPage = () => {
 
   return (
     <>
+    <div className="w-full flex flex-col gap-y-3">
+        <div className="sm:w-full xl:w-1/12">
+              <Link to="add">
+                    <ButtonAdd Text={"Add"} BgColor={"white"} Color={"thirdColor"} iconColor="mainColor" Size={"xl"} />
+              </Link>
+        </div>
       {loading ? (
         <div className="w-1/4 flex items-start mt-[10%] justify-center h-full m-auto">
           <Loading />
@@ -82,6 +92,7 @@ const CountriesPage = () => {
           pageName="Countries"
         />
       )}
+    </div>
     </>
   );
 }
