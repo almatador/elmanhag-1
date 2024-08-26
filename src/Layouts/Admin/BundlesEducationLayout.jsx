@@ -1,7 +1,7 @@
 import React from 'react'
 import { BundlesPage } from '../../Pages/AllPages'
 
-const BundlesEducation = () => {
+const BundlesEducationLayout = () => {
   return (
     <>
       <BundlesPage />
@@ -9,4 +9,4 @@ const BundlesEducation = () => {
   )
 }
 
-export default BundlesEducation
+export default BundlesEducationLayout

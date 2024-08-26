@@ -74,7 +74,7 @@ const AddPaymentMethodPage = () => {
             console.log('Submitting data:', {
                 title,
                 description,
-                thumbnail: thumbnails,
+                thumbnail_link: thumbnails,
                 status: paymentActive,
             });
 

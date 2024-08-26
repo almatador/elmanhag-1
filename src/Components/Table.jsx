@@ -429,7 +429,7 @@ const Table = ({ headers, data, editPath, handleDelete, pageName = '' }) => {
                                             ? (
                                                 <td
                                                     key={`${header}-${row.id}`}
-                                                    className="py-2 text-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"
+                                                    className="py-2 flex justify-center text-thirdColor text-sm sm:text-base lg:text-lg xl:text-xl overflow-hidden"
                                                 >
                                                     <img
                                                         src={`${row.thumbnail}`}

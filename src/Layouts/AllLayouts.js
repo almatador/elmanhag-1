@@ -16,7 +16,7 @@ export { default as AddCategoryLayout } from "./Admin/AddCategoryLayout";
 export { default as EditCategoryLayout } from "./Admin/EditCategoryLayout";
 export { default as SubjectEducation } from "./Admin/SubjectEducation";
 
-export { default as BundlesEducation } from "./Admin/BundlesEducation";
+export { default as BundlesEducationLayout } from "./Admin/BundlesEducationLayout";
 export {default as AddBundleLayout} from "./Admin/AddBundleLayout";
 export {default as EditBundleLayout} from "./Admin/EditBundleLayout";
 

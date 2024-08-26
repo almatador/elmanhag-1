@@ -22,7 +22,7 @@ import {
   NoticeBoardAD,
   CategoriesEducation,
   SubjectEducation,
-  BundlesEducation,
+  BundlesEducationLayout,
   QuestionsBankEducation,
   AddStudentpage,
   AdminRolesAD,
@@ -464,7 +464,7 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true, // Default route for "bundles"
-                element: <BundlesEducation />,
+                element: <BundlesEducationLayout />,
               }
             ]
           },

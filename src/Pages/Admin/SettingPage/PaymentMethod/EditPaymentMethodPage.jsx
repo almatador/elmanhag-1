@@ -26,7 +26,7 @@ const EditPaymentMethodPage = () => {
             setPaymentContent(paymentMethodData);
             setTitle(paymentMethodData?.title || '');
             setDescription(paymentMethodData?.description || '');
-            setThumbnails(paymentMethodData?.thumbnail || '');
+            setThumbnails(paymentMethodData?.thumbnail_link || '');
             setPaymentActive(paymentMethodData?.status || 0); // Use nullish coalescing to ensure 0 status is respected
         }
     }, [paymentMethodData]);
@@ -55,6 +55,61 @@ const EditPaymentMethodPage = () => {
     };
 
 
+    // const handleSubmitEdit = async (event) => {
+    //     event.preventDefault();
+
+    //     if (!thumbnails) {
+    //         auth.toastError('Please upload the Thumbnail.');
+    //         return;
+    //     }
+    //     if (!title) {
+    //         auth.toastError('Please enter the Title.');
+    //         return;
+    //     }
+    //     if (!description) {
+    //         auth.toastError('Please enter the Description.');
+    //         return;
+    //     }
+
+    //     console.log('Title:', title);
+    //     console.log('Description:', description);
+    //     console.log('Thumbnail:', thumbnailFile);
+    //     console.log('Status:', paymentActive);
+
+
+    //     setLoading(true);
+    //     try {
+    //         const formData = new FormData();
+    //         formData.append('title', title);
+    //         formData.append('description', description);
+    //         formData.append('thumbnail_link', thumbnailFile); // Append the file
+    //         formData.append('status', paymentActive);
+
+    //         const response = await axios.put(
+    //             `https://bdev.elmanhag.shop/admin/Settings/paymentMethods/update/${paymentContent.id}`,
+    //             requestData,
+    //             {
+    //                 headers: {
+    //                     Authorization: `Bearer ${auth.user.token}`,
+    //                     'Content-Type': 'multipart/form-data',
+    //                 },
+    //             }
+    //         );
+
+    //         if (response.status === 200) {
+    //             auth.toastSuccess('Payment Method updated successfully!');
+    //             handleGoBack();
+    //         } else {
+    //             auth.toastError('Failed to update Payment Method.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error updating Payment Method:', error?.response?.data?.errors || 'Network error');
+    //         auth.toastError('Error updating Payment Method.');
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
     const handleSubmitEdit = async (event) => {
         event.preventDefault();
 
@@ -73,21 +128,21 @@ const EditPaymentMethodPage = () => {
 
         console.log('Title:', title);
         console.log('Description:', description);
-        console.log('Thumbnail:', thumbnailFile);
+        console.log('Thumbnail:', thumbnails ,thumbnailFile);
         console.log('Status:', paymentActive);
-
-
+    
         setLoading(true);
         try {
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('description', description);
-            formData.append('thumbnail', thumbnailFile); // Append the file
-            formData.append('status', paymentActive);
-
+            const queryParams = new URLSearchParams({
+                title:title,
+                description:description,
+                thumbnail_link: thumbnails,
+                status: paymentActive
+            }).toString();
+    
             const response = await axios.put(
-                `https://bdev.elmanhag.shop/admin/Settings/paymentMethods/update/${paymentContent.id}`,
-                requestData,
+                `https://bdev.elmanhag.shop/admin/Settings/paymentMethods/update/${paymentContent.id}?${queryParams}`,
+                {}, // Empty body since we are using query params
                 {
                     headers: {
                         Authorization: `Bearer ${auth.user.token}`,

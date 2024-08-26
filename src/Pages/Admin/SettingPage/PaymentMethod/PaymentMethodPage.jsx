@@ -167,7 +167,7 @@ const PaymentMethodPage = () => {
   const tableData = paymentMethods.map((method, index) => ({
     id: method.id,
     number: index + 1,
-    thumbnail: method.thumbnail,
+    thumbnail: method.thumbnail_link,
     title: method.title,
     status: method.status === 1 ? 'Active' : 'Disabled',
   }));
