@@ -11,10 +11,16 @@ export { default as TeacherUser } from "./Admin/TeacherUser";
 export { default as AdminUser } from "./Admin/AdminUser";
 /* ////USer */
 /* Education */
-export { default as CategoriesEducation } from "./Admin/CategoriesEducation";
+export { default as CategoriesEducationLayout } from "./Admin/CategoriesEducationLayout";
 export { default as AddCategoryLayout } from "./Admin/AddCategoryLayout";
 export { default as EditCategoryLayout } from "./Admin/EditCategoryLayout";
-export { default as SubjectEducation } from "./Admin/SubjectEducation";
+
+export { default as SubjectEducationLayout } from "./Admin/SubjectEducationLayout";
+export { default as AddSubjectLayout } from "./Admin/AddSubjectLayout";
+export { default as EditSubjectLayout } from "./Admin/EditSubjectLayout";
+export { default as ChapterSubjectLayout } from "./Admin/ChapterSubjectLayout";
+export { default as StudentsSubjectLayout } from "./Admin/StudentsSubjectLayout";
+
 export { default as BundlesEducation } from "./Admin/BundlesEducation";
 export { default as QuestionsBankEducation } from "./Admin/QuestionsBankEducation";
 /* ////Education */
