@@ -51,6 +51,7 @@ const ParentRelationPage = () => {
         console.log("Deleted parent relation with id:", id);
         // Update the parentRelation state to remove the deleted item
         setParentRelation(parentRelation.filter(PR => PR.id !== id));
+        auth.toastSuccess('Parent relation deleted successfully!');
       } else {
         console.error('Failed to delete parent relation:', response);
       }

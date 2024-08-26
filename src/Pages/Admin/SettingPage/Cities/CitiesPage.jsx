@@ -86,6 +86,7 @@ const CitiesPage = () => {
         console.log("Deleted item with id:", id);
         // Update the cities state to remove the deleted city
         setCities(cities.filter(city => city.id !== id));
+        auth.toastSuccess('City deleted successfully!');
       } else {
         console.error('Failed to delete city:', response);
       }

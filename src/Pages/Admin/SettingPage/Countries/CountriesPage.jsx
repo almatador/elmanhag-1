@@ -46,6 +46,7 @@ const CountriesPage = () => {
 
       if (response.status === 200) {
         setCountries(countries.filter(country => country.id !== id));
+        auth.toastSuccess('Country deleted successfully!');
       } else {
         console.error('Failed to delete country:', response);
       }

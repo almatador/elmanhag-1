@@ -155,6 +155,7 @@ const PaymentMethodPage = () => {
       );
       if (response.status === 200) {
         setPaymentMethods(paymentMethods.filter(payment => payment.id !== id));
+        auth.toastSuccess('Payment Method deleted successfully!');
       } else {
         console.error('Failed to delete country:', response);
       }
