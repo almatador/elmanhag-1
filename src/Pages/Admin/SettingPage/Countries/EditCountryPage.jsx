@@ -104,7 +104,7 @@ const EditCountryPage = () => {
                             width="w-full"
                         />
                     </div>
-                    <div className="w-full flex gap-5">
+                    <div className="flex items-center gap-x-4 lg:w-[30%] sm:w-ful">
                             <span className="text-2xl text-thirdColor font-medium">Active:</span>
                             <div>
                                 <CheckBox handleClick={handleClick} checked={countryActive} />
