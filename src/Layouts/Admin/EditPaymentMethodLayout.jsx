@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 import HeaderPageSection from '../../Components/HeaderPageSection'
 import { EditPaymentMethodPage } from '../../Pages/AllPages'
 import { useNavigate, useParams } from 'react-router-dom';
+
 export const paymentMethodEditContext = createContext()
 
 const EditPaymentMethodLayout = () => {
@@ -9,6 +10,7 @@ const EditPaymentMethodLayout = () => {
   const handleGoBack = () => {
     navigate(-1, { replace: true });
   };
+
   const [paymentMethodEdit,setPaymentMethodEdit] = useState(null)
 
   const { paymentMethodId } = useParams();
